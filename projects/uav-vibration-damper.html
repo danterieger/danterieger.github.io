@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A lattice damper for drone motors | Dante Rieger</title>
+  <meta name="description" content="Capstone case study: computational design of five lattice families for a passive UAV motor damper. The auxetic NPRM-II lattice reached a peak force transmissibility of 0.26 in simulation.">
+  <meta property="og:image" content="https://danterieger.github.io/assets/img/projects/uav-vibration-damper/exploded-assembly.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316212c'/%3E%3Cpath d='M7 9h18l-5 7 5 7H7l5-7z' fill='none' stroke='%234ade80' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../">Dante Rieger</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="./" aria-current="page">Projects</a></li>
+          <li><a href="../#experience">Experience</a></li>
+          <li><a href="../#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="wrap">
+      <header class="case-hero">
+        <h1>A lattice damper for drone motors</h1>
+        <p class="lede">Drone motors shake the whole aircraft. We designed a 3D-printed lattice that sits between the motor and the arm to stop that vibration at its source, then used simulation to pick the best of five lattice families.</p>
+        <dl class="case-meta">
+          <div><dt>Context</dt><dd>MEC 825 capstone, Toronto Metropolitan University</dd></div>
+          <div><dt>When</dt><dd>January to April 2026</dd></div>
+          <div><dt>Team</dt><dd>Zakhar Proskurkin (lead), Sandro Ibrakovic, Dante Rieger, Anuq Haizan Nalawangsa</dd></div>
+          <div><dt>Tools</dt><dd>Solid Edge, Python, nTop, TPU printing, tensile testing</dd></div>
+        </dl>
+        <figure class="case-figure">
+          <img src="../assets/img/projects/uav-vibration-damper/exploded-assembly.png" alt="Exploded view of a propeller, motor, green lattice damper and UAV arm" width="1465" height="701">
+          <figcaption>The damper (green) bolts between the motor and the arm, inside the same height and footprint.</figcaption>
+        </figure>
+      </header>
+
+      <div class="prose">
+        <h2>The problem</h2>
+        <p>Rotor imbalance, aerodynamic loads and drivetrain dynamics create broadband vibration in flight. It travels through the frame into the payload: cameras blur, sensors pick up noise, and parts wear. Most existing fixes isolate the payload or stiffen the frame, which treats the symptom. We targeted the source, the motor mount.</p>
+        <p>The design had to work across 5 to 250 Hz, carry up to 45 N of thrust, and bolt between an existing motor and arm without changing either.</p>
+
+        <h2>Approach</h2>
+        <p>There were far too many possible lattices to explore one by one in CAD and FEA, so we built a computational workflow:</p>
+        <ol>
+          <li>Model the geometry of five lattice families mathematically: node positions, strut shapes and repeat rules.</li>
+          <li>Generate many configurations of each family in Python, inside the volume and bolt-hole constraints.</li>
+          <li>Filter out designs that fail clearance, connectivity or printability checks.</li>
+          <li>Simulate each survivor as a beam-and-joint model in TPU: static sag under 45 N, plus force transmissibility and tilt across a frequency sweep.</li>
+          <li>Rank the candidates on transmissibility, tilt, sag and mass, and bring the best into nTop to check feasibility.</li>
+          <li>Print a TPU prototype and test it.</li>
+        </ol>
+
+        <div class="table-scroll">
+          <table>
+            <caption class="muted" style="text-align:left; caption-side: bottom; padding-top: 0.6rem;">The five lattice families we compared.</caption>
+            <thead><tr><th scope="col">Family</th><th scope="col">Idea</th></tr></thead>
+            <tbody>
+              <tr><td>U1 Baseline truss</td><td>Simple truss lattice, used as the benchmark</td></tr>
+              <tr><td>U2 Curved CFCC</td><td>Curved, hourglass-shaped struts to spread load</td></tr>
+              <tr><td>U3 NPRM-I</td><td>Auxetic honeycomb: negative Poisson's ratio for energy absorption</td></tr>
+              <tr><td>U4 NPRM-II</td><td>Auxetic arrowhead pattern</td></tr>
+              <tr><td>U5 Bio-inspired</td><td>Randomized, root-like strut growth with weak struts pruned</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Results</h2>
+        <p>The auxetic arrowhead lattice (NPRM-II) performed best overall. At its worst frequency it passed on only about a quarter of the input force, and it tilted the least. The trade-off was mass: it was the heaviest design.</p>
+      </div>
+
+      <figure class="wide-figure">
+        <img src="../assets/img/projects/uav-vibration-damper/results-comparison.png" alt="Bar charts comparing peak force transmissibility, peak normalized tilt and mass for the five lattice families. NPRM-II has the lowest transmissibility (0.26) and tilt (0.070) but the highest mass (28.5 g)." width="1948" height="697" loading="lazy">
+        <figcaption>Simulated performance in TPU under 45 N thrust across a 5 to 250 Hz sweep. Lower is better on all three.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th scope="col">Lattice</th><th scope="col">Mass (g)</th><th scope="col">Peak transmissibility</th><th scope="col">Peak tilt</th><th scope="col">Peak at (Hz)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>U1 Baseline truss</td><td>14.17</td><td>0.93</td><td>0.095</td><td>70</td></tr>
+              <tr><td>U2 Curved CFCC</td><td>16.34</td><td>0.81</td><td>0.117</td><td>110</td></tr>
+              <tr><td>U3 NPRM-I</td><td>18.03</td><td>0.70</td><td>0.116</td><td>130</td></tr>
+              <tr class="is-selected"><td>U4 NPRM-II (selected)</td><td>28.49</td><td>0.26</td><td>0.070</td><td>135</td></tr>
+              <tr><td>U5 Bio-inspired</td><td>17.43</td><td>1.76</td><td>0.105</td><td>55</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li>Static sag ranged from 0.17 mm (honeycomb) to 0.75 mm (baseline truss), all within the 0.75 mm limit.</li>
+          <li>The bio-inspired lattice amplified vibration, with transmissibility above 1. Random structure didn't help here, which was a useful result in itself.</li>
+          <li>A 3D-printed TPU prototype of the baseline lattice held 383 N in tensile testing before deforming, a safety factor of about 8.5 over the 45 N thrust load.</li>
+        </ul>
+
+        <h2>What we didn't prove yet</h2>
+        <p>The vibration results are from simulation. With one semester, we ran a single physical test, a tensile test on the baseline lattice, so vibration damping hasn't been measured on hardware. The next steps are to print the NPRM-II design, run compression and vibration-isolation tests on it, and bring its mass down.</p>
+
+        <h2>My role</h2>
+        <ul>
+          <li>Lattice geometric modelling and design in nTop, including the square honeycomb, simple cubic, re-entrant honeycomb and face-centred cubic damper variants</li>
+          <li>Rendering the motor, damper and arm assembly for the poster</li>
+          <li>Dynamic simulation support and validation strategy: comparison metrics and interpreting results</li>
+          <li>Physical prototyping and tensile testing</li>
+          <li>Coordinating work across the four-person team</li>
+        </ul>
+      </div>
+
+      <figure class="wide-figure poster-figure">
+        <a href="../assets/img/projects/uav-vibration-damper/poster.png"><img src="../assets/img/projects/uav-vibration-damper/poster.png" alt="The team's capstone poster: objective, candidates, approach, results, prototype and conclusion" width="533" height="799" loading="lazy"></a>
+        <figcaption>The team poster. Select it to open the full image.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h2>Thanks</h2>
+        <p>Prof. Bill Lin for supervising; Jeremy Catania and Matthew McEachern for help with additive manufacturing; Prof. Kourosh Zareinia for lab equipment and materials. The poster and conference paper were written by the whole team.</p>
+        <p>Full nTop, CAD and STL files are too large to post here (about 170 to 300 MB each). <a href="mailto:dante.rieger@gmail.com">Email me</a> if you'd like them, or see the <a href="https://github.com/danterieger/projects/tree/main/2026/uav-vibration-damper">write-up on GitHub</a>.</p>
+        <a class="back-link" href="./">Back to all projects</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Dante Rieger. Toronto, Canada.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Dante Rieger</title>
+  <meta name="description" content="Engineering, manufacturing and project management work by Dante Rieger, sorted by sector.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316212c'/%3E%3Cpath d='M7 9h18l-5 7 5 7H7l5-7z' fill='none' stroke='%234ade80' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../">Dante Rieger</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="./" aria-current="page">Projects</a></li>
+          <li><a href="../#experience">Experience</a></li>
+          <li><a href="../#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <header class="page-head">
+        <h1>Projects</h1>
+        <p class="lede">Engineering, manufacturing and project management work. Pick a sector to narrow the list. Industry work is summarized here; school and personal projects have full case studies.</p>
+      </header>
+
+      <div role="group" aria-label="Filter projects by sector">
+        <ul class="filters" data-filters></ul>
+      </div>
+      <p class="muted" data-filter-status aria-live="polite" hidden></p>
+
+      <!--
+        To add a project: copy one <li class="project"> block below.
+        data-sectors takes a comma-separated list. Sector filter buttons are built
+        automatically from whatever sectors appear here (e.g. "Electrical & controls",
+        "Software & integration").
+      -->
+      <ol class="project-list" data-projects>
+        <li class="project" data-sectors="Mechanical design,Research & simulation">
+          <a class="project-thumb" href="uav-vibration-damper.html" tabindex="-1" aria-hidden="true">
+            <img src="../assets/img/projects/uav-vibration-damper/exploded-assembly.png" alt="" loading="lazy" width="1465" height="701">
+          </a>
+          <div>
+            <h2><a href="uav-vibration-damper.html">A lattice damper for drone motors</a></h2>
+            <p class="meta">Capstone, Toronto Metropolitan University, 2026</p>
+            <p>Computational design of five lattice families for a passive damper between a UAV motor and its arm. The auxetic NPRM-II lattice cut peak force transmissibility to 0.26 in simulation, and a TPU prototype held 383 N.</p>
+            <p><a href="uav-vibration-damper.html">Read the case study</a></p>
+            <p class="sectors">Mechanical design, Research &amp; simulation</p>
+          </div>
+        </li>
+
+        <li class="project" data-sectors="Product implementation,Project management">
+          <p class="project-org" aria-hidden="true">Lincoln Electric</p>
+          <div>
+            <h2>Launching two welder products</h2>
+            <p class="meta">Engineering internship</p>
+            <p>Supported new product implementation for the Vantage 500 welder and the Maverick 300X: BOMs, schematics, and coordinating launch tasks between engineering and the production floor.</p>
+            <p class="sectors">Product implementation, Project management</p>
+          </div>
+        </li>
+
+        <li class="project" data-sectors="Manufacturing,Project management">
+          <p class="project-org" aria-hidden="true">Lincoln Electric</p>
+          <div>
+            <h2>Reorganizing an assembly line</h2>
+            <p class="meta">Engineering internship</p>
+            <p>Worked on the reorganization of the Machine Division assembly line, collaborating with floor colleagues across technical and non-technical roles.</p>
+            <p class="sectors">Manufacturing, Project management</p>
+          </div>
+        </li>
+
+        <li class="project" data-sectors="Manufacturing">
+          <p class="project-org" aria-hidden="true">Lincoln Electric</p>
+          <div>
+            <h2>Safer cored wire payoff area</h2>
+            <p class="meta">Engineering internship</p>
+            <p>Reorganized the cored wire payoff area to improve environment, health and safety conditions and free up overhead crane availability.</p>
+            <p class="sectors">Manufacturing</p>
+          </div>
+        </li>
+
+        <li class="project" data-sectors="Project management">
+          <p class="project-org" aria-hidden="true">Maverick Carpentry</p>
+          <div>
+            <h2>Coordinating construction crews</h2>
+            <p class="meta">Construction coordination, 2024</p>
+            <p>Planned schedules and product deliveries, bought materials and tools within budget, and acted as the main point of contact between crew, supervisors and management.</p>
+            <p class="sectors">Project management</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Dante Rieger. Toronto, Canada.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/projects.js" defer></script>
+</body>
+</html>
