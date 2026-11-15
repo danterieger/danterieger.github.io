@@ -274,7 +274,7 @@ tr.is-selected td:first-child { box-shadow: inset 3px 0 0 var(--tpu); padding-le
 .name > span + span { text-align: right; }
 .name {
   display: block;
-  font-size: clamp(3.4rem, 12.4vw, 11.25rem); line-height: 0.88; font-weight: 800; font-stretch: 125%;
+  font-size: clamp(3.4rem, 12.4vw, 11.25rem); line-height: 0.92; font-weight: 800; font-stretch: 125%;
   letter-spacing: -0.035em; margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
 }
 .intro-meta {
@@ -284,8 +284,8 @@ tr.is-selected td:first-child { box-shadow: inset 3px 0 0 var(--tpu); padding-le
 }
 .intro-meta span { color: var(--graphite); font-weight: 450; }
 .intro-meta a { font-weight: 600; }
-.intro-body { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 5rem); margin-top: clamp(3rem, 7vw, 6rem); align-items: end; }
-.statement { margin: 0; font-size: clamp(1.9rem, 3.8vw, 3.2rem); line-height: 1.05; font-weight: 760; font-stretch: 115%; letter-spacing: -0.015em; max-width: 18ch; text-wrap: balance; }
+.intro-body { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 5rem); margin-top: clamp(3rem, 7vw, 6rem); align-items: end; }
+.statement { margin: 0; font-size: clamp(2.4rem, 5.2vw, 4.5rem); line-height: 1.0; font-weight: 760; font-stretch: 115%; letter-spacing: -0.015em; max-width: 18ch; text-wrap: balance; }
 .intro-body .lede { margin-bottom: 1.5rem; }
 .intro .button { background: var(--ink); color: var(--paper); }
 .intro .button:hover { background: var(--ink-2); color: #fff; }
@@ -403,7 +403,7 @@ tr.is-selected td:first-child { box-shadow: inset 3px 0 0 var(--tpu); padding-le
 .index-list .ix-title::before { content: ""; display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 2px; background: var(--sector); margin-right: 0.7rem; vertical-align: 0.05em; }
 
 /* Name entrance: each line rises out of its own mask, once */
-.name > span { overflow: hidden; padding-bottom: 0.06em; }
+.name > span { overflow: hidden; padding: 0.14em 0.04em 0.24em; margin: -0.14em -0.04em -0.24em; }
 .name-line { display: inline-block; }
 .js-motion .name-line { transform: translateY(105%); }
 .js-motion.is-loaded .name-line { transform: none; transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.1, 1); }
@@ -445,14 +445,40 @@ tr.is-selected td:first-child { box-shadow: inset 3px 0 0 var(--tpu); padding-le
 /* Certifications heading matches Experience */
 .certs h2 { margin-bottom: clamp(1.5rem, 3vw, 2rem); }
 
-/* Smooth colour seams: each coloured section blends in from the colour above it,
-   across its own top padding where there is no text, so edges flow instead of snapping. */
-.band-ink[data-bg] { background: linear-gradient(to bottom, var(--paper) 0, var(--ink) var(--section)); }
-.chapter-capstone { background: linear-gradient(to bottom, var(--ink) 0, #0b4a2c clamp(4rem, 9vw, 7rem)); }
-.chapter-floor { background: linear-gradient(to bottom, #0b4a2c 0, #1f8a4a clamp(1.5rem, 3vw, 2.5rem), #9cc23a clamp(2.75rem, 5.5vw, 4.5rem), var(--yellow) clamp(4rem, 9vw, 7rem)); }
-.section.index { background: linear-gradient(to bottom, var(--yellow) 0, #f8e9a6 clamp(1.5rem, 3vw, 2.5rem), var(--paper) var(--section)); }
-.band-orange { background: linear-gradient(to bottom, var(--paper) 0, #f6c3a6 clamp(1.5rem, 3vw, 2.5rem), var(--walkway) var(--section)); }
-.site-footer.band-ink { background: linear-gradient(to bottom, var(--walkway) 0, var(--ink) 2rem); padding-top: 3rem; }
+/* Smooth colour seams: a tall, eased gradient band between coloured sections.
+   Mixed in OKLab so hues stay clean (green to yellow passes through lime, not mud),
+   with many eased stops plus a faint grain so no banding is visible. */
+.band-ink[data-bg] { background: var(--ink); }
+.chapter-capstone { background: #0b4a2c; }
+.chapter-floor { background: var(--yellow); }
+.section.index { background: var(--paper); }
+.band-orange { background: var(--walkway); }
+.site-footer.band-ink { background: var(--ink); }
+
+.seam {
+  position: relative; height: clamp(8rem, 18vw, 15rem); margin-block: -1px;
+  background: linear-gradient(to bottom, var(--from), var(--to));
+  background: linear-gradient(to bottom,
+    var(--from) 0%,
+    color-mix(in oklab, var(--from) 97%, var(--to)) 8%,
+    color-mix(in oklab, var(--from) 90%, var(--to)) 17%,
+    color-mix(in oklab, var(--from) 78%, var(--to)) 27%,
+    color-mix(in oklab, var(--from) 62%, var(--to)) 38%,
+    color-mix(in oklab, var(--from) 50%, var(--to)) 45%,
+    color-mix(in oklab, var(--from) 38%, var(--to)) 52%,
+    color-mix(in oklab, var(--from) 22%, var(--to)) 63%,
+    color-mix(in oklab, var(--from) 10%, var(--to)) 75%,
+    color-mix(in oklab, var(--from) 3%, var(--to)) 87%,
+    var(--to) 100%);
+}
+.seam::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.09; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* The seam supplies the breathing room, so the sections on either side tighten up */
+.seam + section, .seam + .section { padding-top: clamp(1rem, 2.5vw, 2rem); }
+section:has(+ .seam) { padding-bottom: clamp(1rem, 2.5vw, 2rem); }
+main:has(> .seam:last-child) + .site-footer { padding-top: 1rem; }
 
 /* Projects page: same colour code on filters and sector lines */
 .filters button { display: inline-flex; align-items: center; gap: 0.45rem; }
@@ -460,3 +486,26 @@ tr.is-selected td:first-child { box-shadow: inset 3px 0 0 var(--tpu); padding-le
 .project .sectors { display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; }
 .project .sectors .sector-tag { margin: 0; }
 .project .sectors .sector-tag { color: var(--graphite); }
+
+/* Yellow chapter: a real three-step sequence instead of a lone number */
+.chapter-floor .chapter-figure { justify-self: stretch; align-items: stretch; }
+.steps-title { margin: 0 0 1rem; font-weight: 700; font-size: 0.95rem; }
+.chapter-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.chapter-steps li { counter-increment: step; display: grid; grid-template-columns: clamp(4rem, 8vw, 6.5rem) minmax(0, 1fr); gap: 0 1.25rem; padding-block: 1.1rem; border-top: 3px solid var(--ink); }
+.chapter-steps li:last-child { border-bottom: 3px solid var(--ink); }
+.chapter-steps li::before { content: counter(step, decimal-leading-zero); grid-row: span 2; font-size: clamp(2.6rem, 5vw, 4rem); line-height: 0.9; font-weight: 800; font-stretch: 125%; letter-spacing: -0.03em; }
+.chapter-steps strong { font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 800; font-stretch: 115%; line-height: 1.15; }
+.chapter-steps span { font-size: 1rem; margin-top: 0.25rem; }
+.js-motion .chapter-steps li { opacity: 0; transform: translateX(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.js-motion .chapter.in-view .chapter-steps li { opacity: 1; transform: none; }
+.js-motion .chapter.in-view .chapter-steps li:nth-child(2) { transition-delay: 0.15s; }
+.js-motion .chapter.in-view .chapter-steps li:nth-child(3) { transition-delay: 0.3s; }
+@media (prefers-reduced-motion: reduce) { .js-motion .chapter-steps li { opacity: 1 !important; transform: none !important; } }
+@media (max-width: 860px) { .intro-body { grid-template-columns: 1fr; } }
+
+.chapter-steps span { max-width: none; font-weight: 500; grid-column: 2; }
+.chapter-steps strong { grid-column: 2; }
+/* Green to yellow goes through fresh greens and lime, never olive */
+.seam.seam-lime {
+  background: linear-gradient(to bottom, #0b4a2c 0%, #0f5a33 12%, #17773f 26%, #2a9a49 40%, #5cb84a 53%, #9ccd42 66%, #d0cf2c 80%, #ebc91f 91%, #f5c518 100%);
+}
