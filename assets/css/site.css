@@ -270,8 +270,10 @@ tr.is-selected td:first-child { box-shadow: inset 3px 0 0 var(--tpu); padding-le
 
 /* Intro: large name, quiet fact row, statement */
 .intro { padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3.5rem, 7vw, 6rem); border-bottom: 1px solid var(--rule); }
+.name > span { display: block; }
+.name > span + span { text-align: right; }
 .name {
-  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 0.3em;
+  display: block;
   font-size: clamp(3.4rem, 12.4vw, 11.25rem); line-height: 0.88; font-weight: 800; font-stretch: 125%;
   letter-spacing: -0.035em; margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
 }
