@@ -159,13 +159,26 @@ input[type="range"] { width: 100%; accent-color: var(--tpu); }
 
 .certs { margin-top: clamp(3rem, 6vw, 4.5rem); }
 .certs h3 { font-size: 1.35rem; margin-bottom: 1.25rem; }
-.cert-groups { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem clamp(1.25rem, 3vw, 2.5rem); }
-.cert-groups h4 { margin: 0 0 0.75rem; font-size: 1.05rem; font-weight: 750; font-stretch: 112%; padding-top: 0.75rem; border-top: 4px solid var(--yellow); }
+.cert-groups { max-width: 48rem; border-bottom: 1px solid var(--rule); }
+.cert-group { border-top: 1px solid var(--rule); }
+.cert-group summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 0.75rem;
+  padding: 1rem 0.25rem 1rem 0; font-weight: 750; font-stretch: 112%; font-size: 1.1rem;
+}
+.cert-group summary::-webkit-details-marker { display: none; }
+.cert-group summary::after {
+  content: ""; margin-left: auto; width: 0.6rem; height: 0.6rem; flex: none;
+  border-right: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink);
+  transform: translateY(-25%) rotate(45deg); transition: transform 0.2s ease;
+}
+.cert-group[open] summary::after { transform: translateY(15%) rotate(-135deg); }
+.cert-group summary:hover .cert-title { text-decoration: underline; text-decoration-color: var(--yellow); text-decoration-thickness: 3px; text-underline-offset: 0.2em; }
+.cert-count { font-size: 0.85rem; font-weight: 700; font-stretch: 100%; background: var(--yellow); color: var(--ink); border-radius: 999px; min-width: 1.6rem; padding: 0.05rem 0.5rem; text-align: center; }
+.cert-group .cert-list { padding: 0 0 1.25rem; }
 .cert-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.85rem; }
-.cert-list li { border-top: 1px solid var(--rule); padding-top: 0.6rem; }
+.cert-list li { border-left: 3px solid var(--rule); padding-left: 0.85rem; }
 .cert-list a { text-decoration-color: var(--orange); }
-@media (max-width: 960px) { .cert-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .cert-groups { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .cert-group summary::after { transition: none; } }
 .cert-list strong { display: block; font-weight: 700; }
 .cert-list span { color: var(--graphite); font-size: 0.95rem; }
 
