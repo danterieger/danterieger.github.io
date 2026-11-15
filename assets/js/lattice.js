@@ -73,8 +73,19 @@
 
   // One orchestrated moment on load: a single gentle pull and release.
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduce) {
-    const target = 55, settle = 18, dur = 1800, t0 = performance.now() + 500;
+  if (!reduce && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      io.disconnect();
+      play();
+    }, { threshold: 0.5 });
+    io.observe(stage);
+  } else {
+    range.value = 18; draw(18);
+  }
+
+  function play() {
+    const target = 55, settle = 18, dur = 1800, t0 = performance.now() + 300;
     const ease = (x) => 0.5 - Math.cos(Math.PI * x) / 2;
     function step(now) {
       if (dragging) return;
@@ -85,7 +96,5 @@
       if (x < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
-  } else {
-    range.value = 18; draw(18);
   }
 })();
