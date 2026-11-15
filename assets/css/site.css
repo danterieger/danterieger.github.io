@@ -517,3 +517,15 @@ main:has(> .seam:last-child) + .site-footer { padding-top: 1rem; }
 /* Experience role titles a step larger */
 .timeline h3 { font-size: clamp(1.3rem, 1.9vw, 1.55rem); font-stretch: 112%; line-height: 1.2; }
 .cert-list strong a { color: inherit; text-decoration-color: var(--orange); }
+
+/* Case studies: one centred reading column instead of hugging the left edge */
+.case { max-width: calc(44rem + 2 * var(--gutter)); }
+.case .prose { max-width: none; }
+.case .prose > p, .case .prose > ol, .case .prose > ul { max-width: none; }
+.case .case-hero .lede { max-width: none; }
+.case .table-scroll { margin-inline: 0; }
+.case .case-figure, .case .wide-figure:not(.poster-figure) { width: min(64rem, calc(100vw - 2 * var(--gutter))); margin-left: 50%; transform: translateX(-50%); }
+.case .poster-figure { margin-inline: auto; }
+
+.case .case-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 520px) { .case .case-meta { grid-template-columns: 1fr; } }
