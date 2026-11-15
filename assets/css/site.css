@@ -529,3 +529,6 @@ main:has(> .seam:last-child) + .site-footer { padding-top: 1rem; }
 
 .case .case-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 520px) { .case .case-meta { grid-template-columns: 1fr; } }
+
+/* Case study section titles a step larger */
+.case .prose h2 { font-size: clamp(1.9rem, 3.6vw, 2.75rem); margin-top: clamp(3.5rem, 7vw, 5rem); }
