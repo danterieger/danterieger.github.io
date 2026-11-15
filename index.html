@@ -17,7 +17,7 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="site-header on-ink">
+  <header class="site-header">
     <div class="wrap">
       <a class="brand" href="./">Dante Rieger</a>
       <nav class="site-nav" aria-label="Main">
@@ -31,27 +31,22 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-grid is-text-only">
-        <div class="hero-copy">
-          <h1 id="hero-title">Engineering that works on the floor, not just on paper.</h1>
-          <p class="lede">I'm Dante, a mechatronics engineer in Toronto. I've worked on product launches, reorganized production lines and designed parts that get built, and I now manage engineering and software integration projects at QBuild Software.</p>
-          <div class="hero-links">
+    <section class="intro" aria-labelledby="intro-name">
+      <div class="wrap">
+        <h1 class="name" id="intro-name"><span>Dante</span> <span>Rieger</span></h1>
+        <ul class="intro-meta">
+          <li>Mechatronics engineer<br><span>Toronto, Canada</span></li>
+          <li>Project Manager<br><span>QBuild Software</span></li>
+          <li>Six Sigma Grey Belt<br><span>Solid Edge Professional</span></li>
+          <li><a href="#contact">Get in touch</a><br><a href="https://www.linkedin.com/in/dante-rieger-8823922aa/">LinkedIn</a></li>
+        </ul>
+        <div class="intro-body">
+          <p class="statement">Engineering that works on the floor, not just on paper.</p>
+          <div>
+            <p class="lede">I'm Dante. I've worked on product launches, reorganized production lines and designed parts that get built. Now I manage engineering and software integration projects.</p>
             <a class="button" href="projects/">See my projects</a>
-            <a class="text-link" href="#contact">Get in touch</a>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="credentials" aria-label="Highlights">
-      <div class="wrap">
-        <ul>
-          <li><strong>Six Sigma</strong><span>Grey Belt, earned through a continuous improvement program in manufacturing</span></li>
-          <li><strong>Solid Edge</strong><span>Mechanical Professional Level certification from Siemens</span></li>
-          <li><strong>72%</strong><span>less motor vibration reaching the drone with my capstone's lattice damper, compared with a basic truss design (simulated)</span></li>
-          <li><strong>1 year</strong><span>in manufacturing engineering, launching products and reorganizing assembly lines</span></li>
-        </ul>
       </div>
     </section>
 
@@ -81,40 +76,68 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="work-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="work-title">Selected work</h2>
+    <section class="chapter chapter-capstone" aria-labelledby="ch-capstone">
+      <div class="wrap chapter-grid">
+        <div class="chapter-copy">
+          <p class="chapter-meta">Capstone, Toronto Metropolitan University, 2026</p>
+          <h2 id="ch-capstone">A lattice damper for drone motors</h2>
+          <p>Drone motors shake the whole aircraft. Our team designed and simulated five lattice families for a 3D-printed damper that sits between the motor and the arm, stopping vibration at its source.</p>
+          <ul class="chapter-stats">
+            <li><strong>72%</strong><span>less vibration passed on than a basic truss lattice, in simulation</span></li>
+            <li><strong>383 N</strong><span>held by the TPU prototype in tensile testing</span></li>
+          </ul>
+          <a class="chapter-link" href="projects/uav-vibration-damper.html">Read the case study</a>
         </div>
-        <article class="feature">
-          <figure class="lattice" data-lattice>
-            <div class="lattice-stage">
-              <svg viewBox="0 0 480 400" role="img" aria-labelledby="lattice-title">
-                <title id="lattice-title">A re-entrant honeycomb lattice that widens when stretched</title>
-                <path class="lattice-path" d=""/>
-                <path class="lattice-cell" d=""/>
-              </svg>
-            </div>
-            <div class="lattice-controls">
-              <label for="stretch">Stretch</label>
-              <input id="stretch" type="range" min="0" max="100" value="0">
-              <output for="stretch" aria-live="polite"></output>
-            </div>
-            <figcaption>An auxetic re-entrant honeycomb, one of the lattice families we studied. Pull it sideways and it gets taller too.</figcaption>
-          </figure>
-          <div>
-            <h3><a href="projects/uav-vibration-damper.html">A lattice damper for drone motors</a></h3>
-            <p class="meta">Capstone, Toronto Metropolitan University, Winter 2026</p>
-            <p>We designed and simulated five lattice families for a 3D-printed damper that sits between a UAV motor and its arm. An auxetic arrowhead lattice came out on top.</p>
-            <ul class="stat-row">
-              <li><strong>72%</strong><span>lower peak transmissibility than the baseline lattice, in simulation</span></li>
-              <li><strong>383 N</strong><span>tensile load held by the TPU prototype</span></li>
-              <li><strong>8.5</strong><span>safety factor over max thrust</span></li>
-            </ul>
-            <a class="text-link" href="projects/uav-vibration-damper.html">Read the case study</a>
+        <figure class="lattice" data-lattice>
+          <div class="lattice-stage">
+            <svg viewBox="0 0 480 400" role="img" aria-labelledby="lattice-title">
+              <title id="lattice-title">A re-entrant honeycomb lattice that widens when stretched</title>
+              <path class="lattice-path" d=""/>
+              <path class="lattice-cell" d=""/>
+            </svg>
           </div>
-        </article>
-        <p class="more-link"><a href="projects/">Browse all projects by sector</a></p>
+          <div class="lattice-controls">
+            <label for="stretch">Stretch</label>
+            <input id="stretch" type="range" min="0" max="100" value="0">
+            <output for="stretch" aria-live="polite"></output>
+          </div>
+          <figcaption>An auxetic re-entrant honeycomb, one of the lattices we studied. Pull it sideways and it gets taller too.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter chapter-floor" aria-labelledby="ch-floor">
+      <div class="wrap chapter-grid">
+        <div class="chapter-copy">
+          <p class="chapter-meta">Manufacturing engineering, 2025 to 2026</p>
+          <h2 id="ch-floor">Products launched, lines rebuilt</h2>
+          <p>A year on a welding equipment production floor: taking new products from BOMs and schematics into production, and reorganizing work areas with 5S, lean and kaizen so they run safer and with fewer bottlenecks.</p>
+          <ul class="chapter-list">
+            <li>Vantage 500 and Maverick 300X product launches</li>
+            <li>Machine Division assembly line reorganization</li>
+            <li>Cored wire payoff area redesign for safety and crane access</li>
+          </ul>
+          <a class="chapter-link" href="projects/?sector=Manufacturing">See manufacturing projects</a>
+        </div>
+        <p class="chapter-figure" aria-hidden="true"><strong>2</strong><span>products taken into production</span></p>
+      </div>
+    </section>
+
+    <section class="section index" aria-labelledby="index-title">
+      <div class="wrap">
+        <div class="section-head index-head">
+          <h2 id="index-title">All projects</h2>
+          <a href="projects/">Browse by sector</a>
+        </div>
+        <ol class="index-list" reversed>
+          <li><a href="projects/uav-vibration-damper.html"><span class="ix-title">Lattice damper for drone motors</span><span class="ix-type">Mechanical design, research</span><span class="ix-year">2026</span></a></li>
+          <li><a href="projects/#welder-launches"><span class="ix-title">Launching two welder products</span><span class="ix-type">Product implementation</span><span class="ix-year">2025–26</span></a></li>
+          <li><a href="projects/#assembly-line"><span class="ix-title">Reorganizing an assembly line</span><span class="ix-type">Manufacturing, lean</span><span class="ix-year">2025–26</span></a></li>
+          <li><a href="projects/#cored-wire"><span class="ix-title">Safer cored wire payoff area</span><span class="ix-type">Manufacturing</span><span class="ix-year">2025–26</span></a></li>
+          <li><a href="projects/#construction"><span class="ix-title">Coordinating construction crews</span><span class="ix-type">Project management</span><span class="ix-year">2024</span></a></li>
+          <li><a href="projects/#med-dispenser"><span class="ix-title">Automatic medication dispenser</span><span class="ix-type">Electrical &amp; controls</span><span class="ix-year">2024</span></a></li>
+          <li><a href="projects/#carrying-system"><span class="ix-title">Incapacitated human carrying system</span><span class="ix-type">Mechanical design</span><span class="ix-year">2023</span></a></li>
+        </ol>
       </div>
     </section>
 
