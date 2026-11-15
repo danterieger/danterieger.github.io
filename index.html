@@ -33,7 +33,7 @@
   <main id="main">
     <section class="intro" aria-labelledby="intro-name">
       <div class="wrap">
-        <h1 class="name" id="intro-name"><span>Dante</span> <span>Rieger</span></h1>
+        <h1 class="name" id="intro-name"><span><span class="name-line">Dante</span></span> <span><span class="name-line">Rieger</span></span></h1>
         <ul class="intro-meta">
           <li>Mechatronics engineer<br><span>Toronto, Canada</span></li>
           <li>Project Manager<br><span>QBuild Software</span></li>
@@ -50,29 +50,33 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="what-title">
+    <section class="section band-ink" aria-labelledby="what-title">
       <div class="wrap">
         <div class="section-head">
           <h2 id="what-title">What I do</h2>
         </div>
         <ul class="capabilities">
-          <li>
+          <li style="--sector: var(--c-elec)">
             <h3>Bring new products into production</h3>
             <p>Electrical schematics, BOMs and technical documentation for the Vantage 500 and Maverick 300X launches at Lincoln Electric, for a smooth hand-off to production and fewer operator errors.</p>
           </li>
-          <li>
+          <li style="--sector: var(--c-mfg)">
             <h3>Make production lines run better</h3>
             <p>Led floor layout optimization with 5S, lean and kaizen methods, including the Machine Division assembly line and a safer cored wire payoff area.</p>
           </li>
-          <li>
+          <li style="--sector: var(--c-mech)">
             <h3>Design parts that can be made</h3>
             <p>Parts, fixtures and production drawings in Solid Edge and AutoCAD, and a 3D-printed lattice damper designed in nTop and load-tested in the lab.</p>
           </li>
-          <li>
+          <li style="--sector: var(--c-pm)">
             <h3>Run engineering projects</h3>
             <p>At QBuild, I manage projects that connect CAD and PDM systems to ERP. Before that, I coordinated schedules, budgets and crews on construction projects.</p>
           </li>
         </ul>
+      </div>
+      <div class="ticker" aria-label="Tools and methods">
+        <ul class="ticker-track"><li>Solid Edge</li><li>AutoCAD</li><li>SolidWorks</li><li>nTop</li><li>Python</li><li>Arduino</li><li>BOMs and schematics</li><li>5S</li><li>Lean manufacturing</li><li>Kaizen</li><li>Six Sigma</li><li>Tensile testing</li><li>3D printing</li><li>CAD to ERP integration</li><li>Project scheduling</li></ul>
+        <ul class="ticker-track" aria-hidden="true"><li>Solid Edge</li><li>AutoCAD</li><li>SolidWorks</li><li>nTop</li><li>Python</li><li>Arduino</li><li>BOMs and schematics</li><li>5S</li><li>Lean manufacturing</li><li>Kaizen</li><li>Six Sigma</li><li>Tensile testing</li><li>3D printing</li><li>CAD to ERP integration</li><li>Project scheduling</li></ul>
       </div>
     </section>
 
@@ -83,8 +87,8 @@
           <h2 id="ch-capstone">A lattice damper for drone motors</h2>
           <p>Drone motors shake the whole aircraft. Our team designed and simulated five lattice families for a 3D-printed damper that sits between the motor and the arm, stopping vibration at its source.</p>
           <ul class="chapter-stats">
-            <li><strong>72%</strong><span>less vibration passed on than a basic truss lattice, in simulation</span></li>
-            <li><strong>383 N</strong><span>held by the TPU prototype in tensile testing</span></li>
+            <li><strong data-count="72" data-suffix="%">72%</strong><span>less vibration passed on than a basic truss lattice, in simulation</span></li>
+            <li><strong data-count="383" data-suffix=" N">383 N</strong><span>held by the TPU prototype in tensile testing</span></li>
           </ul>
           <a class="chapter-link" href="projects/uav-vibration-damper.html">Read the case study</a>
         </div>
@@ -119,7 +123,7 @@
           </ul>
           <a class="chapter-link" href="projects/?sector=Manufacturing">See manufacturing projects</a>
         </div>
-        <p class="chapter-figure" aria-hidden="true"><strong>2</strong><span>products taken into production</span></p>
+        <p class="chapter-figure" aria-hidden="true"><strong data-count="2">2</strong><span>products taken into production</span></p>
       </div>
     </section>
 
@@ -130,13 +134,13 @@
           <a href="projects/">Browse by sector</a>
         </div>
         <ol class="index-list" reversed>
-          <li><a href="projects/uav-vibration-damper.html"><span class="ix-title">Lattice damper for drone motors</span><span class="ix-type">Mechanical design, research</span><span class="ix-year">2026</span></a></li>
-          <li><a href="projects/#welder-launches"><span class="ix-title">Launching two welder products</span><span class="ix-type">Product implementation</span><span class="ix-year">2025–26</span></a></li>
-          <li><a href="projects/#assembly-line"><span class="ix-title">Reorganizing an assembly line</span><span class="ix-type">Manufacturing, lean</span><span class="ix-year">2025–26</span></a></li>
-          <li><a href="projects/#cored-wire"><span class="ix-title">Safer cored wire payoff area</span><span class="ix-type">Manufacturing</span><span class="ix-year">2025–26</span></a></li>
-          <li><a href="projects/#construction"><span class="ix-title">Coordinating construction crews</span><span class="ix-type">Project management</span><span class="ix-year">2024</span></a></li>
-          <li><a href="projects/#med-dispenser"><span class="ix-title">Automatic medication dispenser</span><span class="ix-type">Electrical &amp; controls</span><span class="ix-year">2024</span></a></li>
-          <li><a href="projects/#carrying-system"><span class="ix-title">Incapacitated human carrying system</span><span class="ix-type">Mechanical design</span><span class="ix-year">2023</span></a></li>
+          <li style="--sector: var(--c-mech)"><a href="projects/uav-vibration-damper.html"><span class="ix-title">Lattice damper for drone motors</span><span class="ix-type">Mechanical design, research</span><span class="ix-year">2026</span></a></li>
+          <li style="--sector: var(--c-elec)"><a href="projects/#welder-launches"><span class="ix-title">Launching two welder products</span><span class="ix-type">Product implementation</span><span class="ix-year">2025–26</span></a></li>
+          <li style="--sector: var(--c-mfg)"><a href="projects/#assembly-line"><span class="ix-title">Reorganizing an assembly line</span><span class="ix-type">Manufacturing, lean</span><span class="ix-year">2025–26</span></a></li>
+          <li style="--sector: var(--c-mfg)"><a href="projects/#cored-wire"><span class="ix-title">Safer cored wire payoff area</span><span class="ix-type">Manufacturing</span><span class="ix-year">2025–26</span></a></li>
+          <li style="--sector: var(--c-pm)"><a href="projects/#construction"><span class="ix-title">Coordinating construction crews</span><span class="ix-type">Project management</span><span class="ix-year">2024</span></a></li>
+          <li style="--sector: var(--c-elec)"><a href="projects/#med-dispenser"><span class="ix-title">Automatic medication dispenser</span><span class="ix-type">Electrical &amp; controls</span><span class="ix-year">2024</span></a></li>
+          <li style="--sector: var(--c-mech)"><a href="projects/#carrying-system"><span class="ix-title">Incapacitated human carrying system</span><span class="ix-type">Mechanical design</span><span class="ix-year">2023</span></a></li>
         </ol>
       </div>
     </section>
@@ -223,7 +227,7 @@
       </div>
     </section>
 
-    <section class="section" id="contact" aria-labelledby="contact-title">
+    <section class="section band-orange" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact is-text-only">
         <div>
           <h2 id="contact-title">Get in touch</h2>
@@ -238,12 +242,13 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer band-ink">
     <div class="wrap">
       <p>© 2026 Dante Rieger. Toronto, Canada.</p>
     </div>
   </footer>
 
   <script src="assets/js/lattice.js" defer></script>
+  <script src="assets/js/motion.js" defer></script>
 </body>
 </html>

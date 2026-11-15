@@ -348,3 +348,81 @@ tr.is-selected td:first-child { box-shadow: inset 3px 0 0 var(--tpu); padding-le
   .index-list a { grid-template-columns: 2.25rem minmax(0, 1fr) auto; }
   .index-list .ix-type { display: none; }
 }
+
+/* ===== v4: colour rhythm + motion ===== */
+:root {
+  --c-mech: #22a559;   /* mechanical design */
+  --c-mfg: #f5c518;    /* manufacturing */
+  --c-pm: #3b7bf0;     /* project management */
+  --c-elec: #f06a2a;   /* electrical, product launches */
+  --walkway: #ec6a2c;
+}
+
+/* Bands: kill hairlines between coloured sections */
+.band-ink, .band-orange, .chapter { border-top: 0 !important; }
+.band-ink + .section, .band-orange + .section, .chapter + .section { border-top: 0; }
+
+.band-ink { background: var(--ink); color: var(--on-ink); }
+.band-ink h2, .band-ink h3 { color: #fff; }
+.band-ink a { color: #fff; text-decoration-color: var(--yellow); }
+.band-ink :focus-visible { outline-color: var(--yellow); }
+
+/* What I do on dark, each card keyed to its sector colour */
+.band-ink .capabilities li { border-top: 4px solid var(--sector, var(--yellow)); }
+.band-ink .capabilities p { color: var(--on-ink-2); }
+.band-ink .capabilities h3 { transition: color 0.2s ease; }
+.band-ink .capabilities li:hover h3 { color: var(--sector); }
+
+/* Tools ticker */
+.ticker { display: flex; overflow: hidden; margin-top: clamp(3.5rem, 7vw, 5.5rem); border-block: 1px solid var(--ink-2); padding-block: 1.1rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.ticker-track { list-style: none; margin: 0; padding: 0; display: flex; flex: none; gap: 3rem; padding-right: 3rem; animation: ticker 48s linear infinite; }
+.ticker-track li { white-space: nowrap; font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: 700; font-stretch: 118%; color: var(--on-ink-2); }
+.ticker-track li:nth-child(4n+1) { color: var(--c-mfg); }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+@keyframes ticker { to { transform: translateX(-100%); } }
+
+/* Orange contact band */
+.band-orange { background: var(--walkway); color: var(--ink); }
+.band-orange .lede { color: #2b1408; }
+.band-orange .contact-email { color: var(--ink); text-decoration-color: var(--ink); }
+.band-orange .contact-email:hover { color: #fff; text-decoration-color: #fff; }
+.band-orange a { color: var(--ink); text-decoration-color: var(--ink); }
+.band-orange a:hover { color: #fff; }
+.band-orange :focus-visible { outline-color: var(--ink); }
+
+.site-footer.band-ink { color: var(--on-ink-2); border-top: 0; }
+
+/* Project index: sector colour chips and coloured hover fill */
+.index-list li { position: relative; }
+.index-list a { position: relative; z-index: 1; transition: padding-left 0.25s ease; }
+.index-list li::before { content: ""; position: absolute; inset: 0; background: var(--sector); opacity: 0; transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease, opacity 0.35s ease; z-index: 0; }
+.index-list li:hover::before, .index-list li:focus-within::before { opacity: 0.16; transform: scaleX(1); }
+.index-list li:hover a, .index-list li:focus-within a { padding-left: 0.75rem; }
+.index-list a:hover { background: transparent; }
+.index-list .ix-title::before { content: ""; display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 2px; background: var(--sector); margin-right: 0.7rem; vertical-align: 0.05em; }
+
+/* Name entrance: each line rises out of its own mask, once */
+.name > span { overflow: hidden; padding-bottom: 0.06em; }
+.name-line { display: inline-block; }
+.js-motion .name-line { transform: translateY(105%); }
+.js-motion.is-loaded .name-line { transform: none; transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.1, 1); }
+.js-motion.is-loaded .name > span + span .name-line { transition-delay: 0.12s; }
+
+/* Chapter content eases in when reached */
+.js-motion .chapter-copy, .js-motion .chapter-figure { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.js-motion .chapter.in-view .chapter-copy, .js-motion .chapter.in-view .chapter-figure { opacity: 1; transform: none; }
+.js-motion .chapter.in-view .chapter-figure { transition-delay: 0.15s; }
+
+.button { transition: transform 0.15s ease, background-color 0.15s ease; }
+.button:hover { transform: translateY(-2px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+  .ticker { -webkit-mask-image: none; mask-image: none; }
+  .ticker-track[aria-hidden="true"] { display: none; }
+  .ticker-track { flex-wrap: wrap; gap: 0.5rem 2rem; }
+  .ticker { overflow: visible; }
+  .js-motion .name-line, .js-motion .chapter-copy, .js-motion .chapter-figure { transform: none !important; opacity: 1 !important; transition: none !important; }
+  .index-list li::before, .index-list a, .button { transition: none; }
+}
