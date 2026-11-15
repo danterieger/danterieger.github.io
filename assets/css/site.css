@@ -91,6 +91,9 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 .hero-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4.5rem) clamp(4rem, 8vw, 6.5rem) max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); }
 .hero h1 { color: #fff; margin-bottom: 1.5rem; }
 .hero .lede { color: var(--on-ink-2); margin-bottom: 2.25rem; }
+.hero-grid.is-text-only { grid-template-columns: minmax(0, 1fr); min-height: min(64vh, 560px); }
+.hero-grid.is-text-only .hero-copy { max-width: calc(var(--wrap) + 2 * var(--gutter)); }
+.hero-grid.is-text-only h1 { max-width: 16ch; }
 .hero-photo { position: relative; margin: 0; }
 .hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
 .hero-links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.75rem; align-items: center; }
@@ -163,6 +166,7 @@ input[type="range"] { width: 100%; accent-color: var(--tpu); }
 
 /* Contact */
 .contact { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+.contact.is-text-only { grid-template-columns: minmax(0, 1fr); }
 .contact-photo { width: clamp(7rem, 14vw, 10rem); aspect-ratio: 1; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 5px var(--yellow); }
 .contact h2 { margin-bottom: 0.5rem; }
 .contact .lede { margin-bottom: 1.25rem; }
