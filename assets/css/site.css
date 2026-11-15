@@ -509,3 +509,11 @@ main:has(> .seam:last-child) + .site-footer { padding-top: 1rem; }
 .seam.seam-lime {
   background: linear-gradient(to bottom, #0b4a2c 0%, #0f5a33 12%, #17773f 26%, #2a9a49 40%, #5cb84a 53%, #9ccd42 66%, #d0cf2c 80%, #ebc91f 91%, #f5c518 100%);
 }
+
+/* Canvas-rendered seams replace the CSS gradient and grain once drawn */
+.seam.is-rendered::after { display: none; }
+.seam { height: clamp(10rem, 22vw, 18rem); }
+
+/* Experience role titles a step larger */
+.timeline h3 { font-size: clamp(1.3rem, 1.9vw, 1.55rem); font-stretch: 112%; line-height: 1.2; }
+.cert-list strong a { color: inherit; text-decoration-color: var(--orange); }
