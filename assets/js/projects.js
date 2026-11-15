@@ -12,13 +12,30 @@
   items.forEach((el) => sectorsOf(el).forEach((s) => counts.set(s, (counts.get(s) || 0) + 1)));
   const sectors = [...counts.keys()].sort((a, b) => counts.get(b) - counts.get(a) || a.localeCompare(b));
 
+  const sectorColour = {
+    "Mechanical design": "var(--c-mech)", "Research & simulation": "var(--c-mech)",
+    "Manufacturing": "var(--c-mfg)", "Lean & continuous improvement": "var(--c-mfg)",
+    "Project management": "var(--c-pm)",
+    "Product implementation": "var(--c-elec)", "Electrical & controls": "var(--c-elec)", "Product design": "var(--c-elec)",
+  };
+
+  // Colour the sector names under each project to match the homepage colour code.
+  items.forEach((el) => {
+    const line = el.querySelector(".sectors");
+    if (!line) return;
+    line.innerHTML = sectorsOf(el)
+      .map((s) => `<span class="sector-tag" style="--sector: ${sectorColour[s] || "var(--graphite)"}">${s.replace(/&/g, "&amp;")}</span>`)
+      .join("");
+  });
+
   function makeButton(label, value, n) {
     const li = document.createElement("li");
     const b = document.createElement("button");
     b.type = "button";
     b.dataset.value = value;
     b.setAttribute("aria-pressed", value === "" ? "true" : "false");
-    b.innerHTML = `${label} <span class="count">${n}</span>`;
+    if (value) b.style.setProperty("--sector", sectorColour[value] || "var(--graphite)");
+    b.innerHTML = `${value ? '<span class="chip" aria-hidden="true"></span>' : ""}${label} <span class="count">${n}</span>`;
     b.addEventListener("click", () => apply(value));
     li.appendChild(b);
     bar.appendChild(li);

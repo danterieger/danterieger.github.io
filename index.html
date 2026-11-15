@@ -31,7 +31,7 @@
   </header>
 
   <main id="main">
-    <section class="intro" aria-labelledby="intro-name">
+    <section class="intro" data-bg="#f4f6f7" aria-labelledby="intro-name">
       <div class="wrap">
         <h1 class="name" id="intro-name"><span><span class="name-line">Dante</span></span> <span><span class="name-line">Rieger</span></span></h1>
         <ul class="intro-meta">
@@ -50,39 +50,44 @@
       </div>
     </section>
 
-    <section class="section band-ink" aria-labelledby="what-title">
+    <section class="section band-ink" data-bg="#16212c" aria-labelledby="what-title">
       <div class="wrap">
         <div class="section-head">
           <h2 id="what-title">What I do</h2>
         </div>
         <ul class="capabilities">
           <li style="--sector: var(--c-elec)">
+            <p class="sector-tag">Product implementation</p>
             <h3>Bring new products into production</h3>
             <p>Electrical schematics, BOMs and technical documentation for the Vantage 500 and Maverick 300X launches at Lincoln Electric, for a smooth hand-off to production and fewer operator errors.</p>
           </li>
           <li style="--sector: var(--c-mfg)">
+            <p class="sector-tag">Manufacturing</p>
             <h3>Make production lines run better</h3>
             <p>Led floor layout optimization with 5S, lean and kaizen methods, including the Machine Division assembly line and a safer cored wire payoff area.</p>
           </li>
           <li style="--sector: var(--c-mech)">
+            <p class="sector-tag">Mechanical design</p>
             <h3>Design parts that can be made</h3>
             <p>Parts, fixtures and production drawings in Solid Edge and AutoCAD, and a 3D-printed lattice damper designed in nTop and load-tested in the lab.</p>
           </li>
           <li style="--sector: var(--c-pm)">
+            <p class="sector-tag">Project management</p>
             <h3>Run engineering projects</h3>
             <p>At QBuild, I manage projects that connect CAD and PDM systems to ERP. Before that, I coordinated schedules, budgets and crews on construction projects.</p>
           </li>
         </ul>
       </div>
       <div class="ticker" aria-label="Tools and methods">
-        <ul class="ticker-track"><li>Solid Edge</li><li>AutoCAD</li><li>SolidWorks</li><li>nTop</li><li>Python</li><li>Arduino</li><li>BOMs and schematics</li><li>5S</li><li>Lean manufacturing</li><li>Kaizen</li><li>Six Sigma</li><li>Tensile testing</li><li>3D printing</li><li>CAD to ERP integration</li><li>Project scheduling</li></ul>
-        <ul class="ticker-track" aria-hidden="true"><li>Solid Edge</li><li>AutoCAD</li><li>SolidWorks</li><li>nTop</li><li>Python</li><li>Arduino</li><li>BOMs and schematics</li><li>5S</li><li>Lean manufacturing</li><li>Kaizen</li><li>Six Sigma</li><li>Tensile testing</li><li>3D printing</li><li>CAD to ERP integration</li><li>Project scheduling</li></ul>
+        <ul class="ticker-track"><li style="--sector: var(--c-mech)">Solid Edge</li><li style="--sector: var(--c-mech)">AutoCAD</li><li style="--sector: var(--c-mech)">SolidWorks</li><li style="--sector: var(--c-mech)">nTop</li><li style="--sector: var(--c-elec)">Python</li><li style="--sector: var(--c-elec)">Arduino</li><li style="--sector: var(--c-elec)">BOMs and schematics</li><li style="--sector: var(--c-mfg)">5S</li><li style="--sector: var(--c-mfg)">Lean manufacturing</li><li style="--sector: var(--c-mfg)">Kaizen</li><li style="--sector: var(--c-mfg)">Six Sigma</li><li style="--sector: var(--c-mech)">Tensile testing</li><li style="--sector: var(--c-mech)">3D printing</li><li style="--sector: var(--c-pm)">CAD to ERP integration</li><li style="--sector: var(--c-pm)">Project scheduling</li></ul>
+        <ul class="ticker-track" aria-hidden="true"><li style="--sector: var(--c-mech)">Solid Edge</li><li style="--sector: var(--c-mech)">AutoCAD</li><li style="--sector: var(--c-mech)">SolidWorks</li><li style="--sector: var(--c-mech)">nTop</li><li style="--sector: var(--c-elec)">Python</li><li style="--sector: var(--c-elec)">Arduino</li><li style="--sector: var(--c-elec)">BOMs and schematics</li><li style="--sector: var(--c-mfg)">5S</li><li style="--sector: var(--c-mfg)">Lean manufacturing</li><li style="--sector: var(--c-mfg)">Kaizen</li><li style="--sector: var(--c-mfg)">Six Sigma</li><li style="--sector: var(--c-mech)">Tensile testing</li><li style="--sector: var(--c-mech)">3D printing</li><li style="--sector: var(--c-pm)">CAD to ERP integration</li><li style="--sector: var(--c-pm)">Project scheduling</li></ul>
       </div>
     </section>
 
-    <section class="chapter chapter-capstone" aria-labelledby="ch-capstone">
+    <section class="chapter chapter-capstone" data-bg="#0b4a2c" aria-labelledby="ch-capstone">
       <div class="wrap chapter-grid">
         <div class="chapter-copy">
+          <p class="chapter-tag">Mechanical design</p>
           <p class="chapter-meta">Capstone, Toronto Metropolitan University, 2026</p>
           <h2 id="ch-capstone">A lattice damper for drone motors</h2>
           <p>Drone motors shake the whole aircraft. Our team designed and simulated five lattice families for a 3D-printed damper that sits between the motor and the arm, stopping vibration at its source.</p>
@@ -110,10 +115,11 @@
       </div>
     </section>
 
-    <section class="chapter chapter-floor" aria-labelledby="ch-floor">
+    <section class="chapter chapter-floor" data-bg="#f5c518" aria-labelledby="ch-floor">
       <div class="wrap chapter-grid">
         <div class="chapter-copy">
-          <p class="chapter-meta">Manufacturing engineering, 2025 to 2026</p>
+          <p class="chapter-tag">Manufacturing</p>
+          <p class="chapter-meta">Engineering internship, 2025 to 2026</p>
           <h2 id="ch-floor">Products launched, lines rebuilt</h2>
           <p>A year on a welding equipment production floor: taking new products from BOMs and schematics into production, and reorganizing work areas with 5S, lean and kaizen so they run safer and with fewer bottlenecks.</p>
           <ul class="chapter-list">
@@ -127,7 +133,7 @@
       </div>
     </section>
 
-    <section class="section index" aria-labelledby="index-title">
+    <section class="section index" data-bg="#f4f6f7" aria-labelledby="index-title">
       <div class="wrap">
         <div class="section-head index-head">
           <h2 id="index-title">All projects</h2>
@@ -145,7 +151,7 @@
       </div>
     </section>
 
-    <section class="section" id="experience" aria-labelledby="exp-title">
+    <section class="section" id="experience" data-bg="#f4f6f7" aria-labelledby="exp-title">
       <div class="wrap">
         <div class="section-head">
           <h2 id="exp-title">Experience</h2>
@@ -191,7 +197,7 @@
         </ol>
 
         <div class="certs">
-          <h3>Certifications</h3>
+          <h2 id="certs-title">Certifications</h2>
           <div class="cert-groups">
             <details class="cert-group">
               <summary><span class="cert-title">CAD &amp; design</span> <span class="cert-count">2</span></summary>
@@ -227,7 +233,7 @@
       </div>
     </section>
 
-    <section class="section band-orange" id="contact" aria-labelledby="contact-title">
+    <section class="section band-orange" data-bg="#ec6a2c" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact is-text-only">
         <div>
           <h2 id="contact-title">Get in touch</h2>
