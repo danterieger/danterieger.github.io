@@ -563,3 +563,8 @@ a, button, summary, input { touch-action: manipulation; }
 .ticker-toggle[aria-pressed="true"]::before { width: 0; height: 0; border-inline: 0; border-block: 0.4rem solid transparent; border-left: 0.6rem solid currentColor; }
 .ticker.is-paused .ticker-track { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .ticker-bar { display: none; } }
+
+.caption-link { font-weight: 700; white-space: nowrap; }
+.chapter-capstone .caption-link { color: #fff; text-decoration-color: var(--tpu-light); }
+.chapter-capstone .caption-link:hover { color: var(--tpu-light); }
+.case h2[id] { scroll-margin-top: 1.5rem; }
