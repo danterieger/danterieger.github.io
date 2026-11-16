@@ -18,6 +18,30 @@
   }, { threshold: 0.2 });
   document.querySelectorAll(".chapter").forEach((el) => chapterIO.observe(el));
 
+  // Headings, rows, cards and photos in the other sections rise in as they arrive.
+  // Siblings in the same group are staggered so a list builds up rather than appearing at once.
+  const groups = [
+    ".section-head h2", ".capabilities > li", ".index-list > li", ".timeline > li",
+    ".edu-text > *", ".edu-photos > img", ".certs > h2", ".cert-group",
+    ".contact-photo", ".contact > div > *", ".project-list > li", ".projects-head > *"
+  ];
+  const revealIO = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("in-view");
+      revealIO.unobserve(e.target);
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+  groups.forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el) => {
+      if (el.closest(".intro, .chapter")) return;
+      const i = [...el.parentElement.children].filter((c) => c.matches(sel)).indexOf(el);
+      el.style.setProperty("--d", Math.min(i, 5) * 0.09 + "s");
+      el.classList.add("reveal");
+      revealIO.observe(el);
+    });
+  });
+
   // Numbers count up once when they come into view.
   const ease = (t) => 1 - Math.pow(1 - t, 3);
   function countUp(el) {

@@ -612,3 +612,13 @@ a, button, summary, input { touch-action: manipulation; }
 
 /* Photo thumbnails on the projects list */
 .project-thumb.is-photo img { object-fit: cover; }
+
+/* v6: education photos shown whole, and section reveals */
+.edu-photos { grid-template-columns: 1fr 1fr; gap: 1rem; }
+.edu-photos img { height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.edu-photos img:nth-child(2) { margin-top: 2.5rem; }
+@media (max-width: 860px) { .edu-photos img { height: auto; } .edu-photos img:nth-child(2) { margin-top: 1.5rem; } }
+
+.js-motion .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.1, 1); transition-delay: var(--d, 0s); }
+.js-motion .reveal.in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js-motion .reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
