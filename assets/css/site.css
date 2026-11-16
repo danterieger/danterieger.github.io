@@ -588,3 +588,27 @@ a, button, summary, input { touch-action: manipulation; }
 .intro-meta li { flex: 0 1 auto; }
 @media (max-width: 760px) { .intro-meta { flex-direction: column; } }
 @media (prefers-reduced-motion: reduce) { .intro-btn { transition: none; } .intro-btn:hover { transform: none; } }
+
+/* Portrait beside the statement */
+.intro-body.has-portrait { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; }
+.intro-text .statement { margin-bottom: 1.5rem; }
+.intro-text .lede { margin-bottom: 1.75rem; }
+.intro-portrait { margin: 0; }
+.intro-portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 22%; border-radius: 6px; box-shadow: 10px 10px 0 var(--yellow); }
+@media (max-width: 860px) { .intro-portrait { max-width: 26rem; } }
+
+/* Education */
+.edu-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; margin-bottom: clamp(3.5rem, 7vw, 5.5rem); }
+.edu-text h2 { margin-bottom: 1.5rem; }
+.edu-text h3 { font-size: clamp(1.3rem, 1.9vw, 1.55rem); font-stretch: 112%; margin-bottom: 0.3rem; }
+.edu-text .org { color: var(--graphite); margin-bottom: 1rem; }
+.edu-photos { display: grid; grid-template-columns: 0.8fr 1fr 1fr; gap: 0.75rem; }
+.edu-photos img { width: 100%; height: clamp(16rem, 32vw, 24rem); object-fit: cover; border-radius: 6px; }
+.edu-photos img:nth-child(2) { margin-top: 2rem; }
+@media (max-width: 860px) { .edu-grid { grid-template-columns: 1fr; } .edu-photos img { height: 14rem; } .edu-photos img:nth-child(2) { margin-top: 0; } }
+
+/* Contact headshot back in */
+.contact-photo { box-shadow: 0 0 0 5px var(--ink); }
+
+/* Photo thumbnails on the projects list */
+.project-thumb.is-photo img { object-fit: cover; }

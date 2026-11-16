@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=1794788296">
+  <link rel="stylesheet" href="assets/css/site.css?v=1794788815">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316212c'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23f5c518'/%3E%3Cpath d='M8 7h6a6 6 0 0 1 0 12H8z' fill='none' stroke='%23eef2f4' stroke-width='2.5'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -44,12 +44,15 @@
           <li>Project Manager at QBuild Software<br><span>Current role, since November 2026</span></li>
           <li>Manufacturing and design<br><span>Product launches, lean, CAD to ERP</span></li>
         </ul>
-        <div class="intro-body">
-          <p class="statement">Engineering that works on the floor, not just on paper.</p>
-          <div>
+        <div class="intro-body has-portrait">
+          <div class="intro-text">
+            <p class="statement">Engineering that works on the floor, not just on paper.</p>
             <p class="lede">I’m Dante. I’ve worked on product launches, reorganized production lines and designed parts that get built. Now I manage engineering and software integration projects.</p>
             <a class="button" href="projects/">See my projects</a>
           </div>
+          <figure class="intro-portrait">
+            <img src="assets/img/me/portrait.jpg" alt="Dante Rieger in a white polo, standing in a bright hallway" width="899" height="1353" fetchpriority="high">
+          </figure>
         </div>
       </div>
     </section>
@@ -204,15 +207,26 @@
               <p>Planned schedules and deliveries, bought materials and tools within budget, and was the main point of contact between crew, supervisors and management.</p>
             </div>
           </li>
-          <li>
-            <span class="when">2026</span>
-            <div>
-              <h3>B.Eng. (Honours) Mechatronics Engineering</h3>
-              <p class="org">Toronto Metropolitan University (formerly Ryerson)</p>
-              <p>Capstone on lattice-based vibration suppression for UAVs, supervised by Prof. Bill Lin.</p>
-            </div>
-          </li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section education" id="education" data-bg="#f4f6f7" aria-labelledby="edu-title">
+      <div class="wrap">
+        <div class="edu-grid">
+          <div class="edu-text">
+            <h2 id="edu-title">Education</h2>
+            <h3>Bachelor of Engineering (Honours), Mechatronics</h3>
+            <p class="org">Toronto Metropolitan University, formerly Ryerson University</p>
+            <p>Where the foundation was set: mechanics, electronics, controls and programming, brought together in a capstone on vibration suppression for UAVs.</p>
+            <p>Like Canadian engineers before me, I wear the Iron Ring, a daily reminder of the obligation to public safety and to work done right.</p>
+          </div>
+          <div class="edu-photos">
+            <img src="assets/img/education/degree.jpg" alt="Dante holding his Bachelor of Engineering degree" width="367" height="730" loading="lazy">
+            <img src="assets/img/education/convocation.jpg" alt="Dante in convocation robes with family" width="659" height="880" loading="lazy">
+            <img src="assets/img/education/iron-ring.jpg" alt="Dante and a fellow engineer showing their Iron Rings" width="659" height="880" loading="lazy">
+          </div>
+        </div>
 
         <div class="certs">
           <h2 id="certs-title">Certifications</h2>
@@ -243,7 +257,7 @@
             <details class="cert-group">
               <summary><span class="cert-title">Health &amp; safety</span> <span class="cert-count">1</span></summary>
               <ul class="cert-list">
-                <li><strong>Working at Heights</strong><span>Carpenters' Regional Council, 2024, valid to 2028</span></li>
+                <li><strong>Working at Heights</strong><span>Carpenters’ Regional Council, 2024, valid to 2028</span></li>
               </ul>
             </details>
           </div>
@@ -253,7 +267,8 @@
 
     <div class="seam" style="--from: #f4f6f7; --to: #ec6a2c" aria-hidden="true"></div>
     <section class="section band-orange" data-bg="#ec6a2c" id="contact" aria-labelledby="contact-title">
-      <div class="wrap contact is-text-only">
+      <div class="wrap contact">
+        <img class="contact-photo" src="assets/img/me/headshot.jpg" alt="Dante Rieger" width="800" height="747" loading="lazy">
         <div>
           <h2 id="contact-title">Get in touch</h2>
           <p class="lede">Open to conversations about manufacturing, product development and engineering projects.</p>
@@ -274,8 +289,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/lattice.js?v=1794788296" defer></script>
-  <script src="assets/js/motion.js?v=1794788296" defer></script>
-  <script src="assets/js/seams.js?v=1794788296" defer></script>
+  <script src="assets/js/lattice.js?v=1794788815" defer></script>
+  <script src="assets/js/motion.js?v=1794788815" defer></script>
+  <script src="assets/js/seams.js?v=1794788815" defer></script>
 </body>
 </html>
