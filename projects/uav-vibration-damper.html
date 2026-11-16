@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f7">
   <title>A lattice damper for drone motors | Dante Rieger</title>
   <meta name="description" content="Capstone case study: computational design of five lattice families for a passive UAV motor damper. The auxetic NPRM-II lattice reached a peak force transmissibility of 0.26 in simulation.">
   <meta property="og:image" content="https://danterieger.github.io/assets/img/projects/uav-vibration-damper/exploded-assembly.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/site.css?v=1794787020">
+  <link rel="stylesheet" href="../assets/css/site.css?v=1794787694">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316212c'/%3E%3Cpath d='M7 9h18l-5 7 5 7H7l5-7z' fill='none' stroke='%234ade80' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -68,7 +69,7 @@
             <tbody>
               <tr><td>U1 Baseline truss</td><td>Simple truss lattice, used as the benchmark</td></tr>
               <tr><td>U2 Curved CFCC</td><td>Curved, hourglass-shaped struts to spread load</td></tr>
-              <tr><td>U3 NPRM-I</td><td>Auxetic honeycomb: negative Poisson's ratio for energy absorption</td></tr>
+              <tr><td>U3 NPRM-I</td><td>Auxetic honeycomb: negative Poisson’s ratio for energy absorption</td></tr>
               <tr><td>U4 NPRM-II</td><td>Auxetic arrowhead pattern</td></tr>
               <tr><td>U5 Bio-inspired</td><td>Randomized, root-like strut growth with weak struts pruned</td></tr>
             </tbody>
@@ -101,12 +102,12 @@
         </div>
         <ul>
           <li>Static sag ranged from 0.17 mm (honeycomb) to 0.75 mm (baseline truss), all within the 0.75 mm limit.</li>
-          <li>The bio-inspired lattice amplified vibration, with transmissibility above 1. Random structure didn't help here, which was a useful result in itself.</li>
+          <li>The bio-inspired lattice amplified vibration, with transmissibility above 1. Random structure didn’t help here, which was a useful result in itself.</li>
           <li>A 3D-printed TPU prototype of the baseline lattice held 383 N in tensile testing before deforming, a safety factor of about 8.5 over the 45 N thrust load.</li>
         </ul>
 
-        <h2>What we didn't prove yet</h2>
-        <p>The vibration results are from simulation. With one semester, we ran a single physical test, a tensile test on the baseline lattice, so vibration damping hasn't been measured on hardware. The next steps are to print the NPRM-II design, run compression and vibration-isolation tests on it, and bring its mass down.</p>
+        <h2>What we didn’t prove yet</h2>
+        <p>The vibration results are from simulation. With one semester, we ran a single physical test, a tensile test on the baseline lattice, so vibration damping hasn’t been measured on hardware. The next steps are to print the NPRM-II design, run compression and vibration-isolation tests on it, and bring its mass down.</p>
 
         <h2>My role</h2>
         <ul>
@@ -126,7 +127,7 @@
       <div class="prose">
         <h2>Thanks</h2>
         <p>Prof. Bill Lin for supervising; Jeremy Catania and Matthew McEachern for help with additive manufacturing; Prof. Kourosh Zareinia for lab equipment and materials. The poster and conference paper were written by the whole team.</p>
-        <p>Full nTop, CAD and STL files are too large to post here (about 170 to 300 MB each). <a href="mailto:dante.rieger@gmail.com">Email me</a> if you'd like them, or see the <a href="https://github.com/danterieger/projects/tree/main/2026/uav-vibration-damper">write-up on GitHub</a>.</p>
+        <p>Full nTop, CAD and STL files are too large to post here (about 170 to 300 MB each). <a href="mailto:dante.rieger@gmail.com">Email me</a> if you’d like them, or see the <a href="https://github.com/danterieger/projects/tree/main/2026/uav-vibration-damper">write-up on GitHub</a>.</p>
         <a class="back-link" href="./">Back to all projects</a>
       </div>
     </article>

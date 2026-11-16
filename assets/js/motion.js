@@ -45,3 +45,15 @@
   });
 })();
 
+
+// Pause and play for the moving tools strip (motion longer than 5 seconds needs a control).
+(function () {
+  const btn = document.querySelector("[data-ticker-toggle]");
+  const ticker = document.querySelector(".ticker");
+  if (!btn || !ticker) return;
+  btn.addEventListener("click", () => {
+    const paused = ticker.classList.toggle("is-paused");
+    btn.setAttribute("aria-pressed", String(paused));
+    btn.textContent = paused ? "Play" : "Pause";
+  });
+})();
