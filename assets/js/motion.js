@@ -22,8 +22,7 @@
   // Siblings in the same group are staggered so a list builds up rather than appearing at once.
   const groups = [
     ".section-head h2", ".capabilities > li", ".index-list > li", ".timeline > li",
-    ".edu-text > *", ".edu-photos > img", ".certs > h2", ".cert-group",
-    ".contact-photo", ".contact > div > *", ".project-list > li", ".projects-head > *"
+    ".edu-text > *", ".edu-photos > img", ".certs > h2", ".cert-group", ".project-list > li", ".projects-head > *"
   ];
   const revealIO = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
