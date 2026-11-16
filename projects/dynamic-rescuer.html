@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/site.css?v=1794789329">
+  <link rel="stylesheet" href="../assets/css/site.css?v=1794791263">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316212c'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23f5c518'/%3E%3Cpath d='M8 7h6a6 6 0 0 1 0 12H8z' fill='none' stroke='%23eef2f4' stroke-width='2.5'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -49,42 +49,161 @@
 
       <div class="prose">
         <h2>The brief</h2>
-        <p>A multinational NGO working with the World Health Organization asked us to rethink how incapacitated people are moved. Traditional stretcher designs have barely changed in centuries and break down off flat ground: in rubble, mud, snow or rough trails. The system had to work in two situations, <strong>urban disasters</strong> and <strong>wilderness injuries</strong>, while staying comparable to existing solutions in durability and cost.</p>
+        <p>A multinational NGO working with the World Health Organization asked us to rethink how incapacitated people are moved. Stretcher designs have barely changed in centuries and break down off flat ground: in rubble, mud, snow, floodwater or rough trails. The system had to work in two situations, <strong>urban disasters</strong> and <strong>wilderness injuries</strong>, stay comparable to existing products in durability and cost, and protect the safety, comfort and dignity of both the paramedics and the patient.</p>
 
         <h2>My role</h2>
         <ul>
           <li>Research and analysis behind the design brief, users and requirements</li>
           <li>Building the detailed 3D model in SolidWorks</li>
+          <li>Writing one of the six personas and its use case: an experienced paramedic reaching a paralyzed snowboarder stuck in deep snow on a ski hill</li>
           <li>Documenting the product development process in the design report</li>
           <li>Creating the team’s design plan and timeline so milestones stayed achievable</li>
         </ul>
 
         <h2>How we designed it</h2>
-        <ol>
-          <li><strong>Situation scan.</strong> Researched goals, environment, competing products, users and strategy, covering both paramedics (the people operating it) and patients (the people riding in it).</li>
-          <li><strong>Personas and use cases.</strong> Built six personas and their situated use cases, from a very short paramedic and a paramedic with anxiety to patients with physical disabilities or cognitive disorders, to surface real human-factors needs.</li>
-          <li><strong>Requirements.</strong> Turned those needs into situational and internal engineering requirements, for example a bed assembly of no more than 14 kg dry weight.</li>
-          <li><strong>Concepts to one design.</strong> Combined the best features of six initial concepts using a morphological chart, then mapped inputs, outputs and subsystems with a system diagram and interface matrix.</li>
-          <li><strong>Inclusive design check.</strong> Used the Cambridge Exclusion Calculator to estimate who each version would exclude on strength, dexterity and other demands, and changed the design to lower those rates.</li>
-          <li><strong>Detailed design.</strong> Produced sketches and a full set of CAD drawings, with every change tracked in a design change record across three design loops.</li>
-        </ol>
+        <p>We worked in three design loops: six individual concepts, six refined concepts, then one integrated design. Every change was logged in a design change record.</p>
 
+        <h3>1. Start from the people using it</h3>
+        <p>We built six personas, three paramedics and three patients, and placed each in a realistic rescue:</p>
+        <ul>
+          <li>A 5 ft paramedic reaching a car crash where the ambulance can’t get close</li>
+          <li>A 6 ft 7 army medic carrying a stroke patient down an aircraft’s mobile staircase</li>
+          <li>An elderly woman with arthritis trapped in a partly collapsed building</li>
+          <li>A young wheelchair user caught in a flash flood at home</li>
+          <li>A young man with autism who can’t tolerate being touched, inside a house fire</li>
+          <li>An experienced paramedic, slowed by stress and complex equipment, reaching a paralyzed snowboarder in deep snow</li>
+        </ul>
+        <p>These scenarios exposed needs a spec sheet would miss: very short and very tall paramedics sharing one carrier, stairs and narrow doors, patients who panic in enclosed spaces, and operators under time pressure who need fewer parts to get wrong.</p>
+
+        <h3>2. Turn needs into numbers</h3>
+        <p>We wrote about 30 situational and internal requirements, each backed by a source. A selection:</p>
+      </div>
+
+      <div class="prose">
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">Requirement</th><th scope="col">Target</th><th scope="col">Why</th></tr></thead>
+            <tbody>
+              <tr><td>Patient load</td><td>Up to 159 kg</td><td>Standard limit of reference stretchers</td></tr>
+              <tr><td>Envelope</td><td>2134 × 610 mm</td><td>Standard stretcher size that fits ambulance-ready elevators</td></tr>
+              <tr><td>Working height</td><td>64.3 to 119.0 cm</td><td>5th percentile female knuckle height to 95th percentile male elbow height</td></tr>
+              <tr><td>Empty weight</td><td>50 kg max, bed alone 14 kg</td><td>Paramedics are certified to carry 50 kg up and down stairs</td></tr>
+              <tr><td>Hold on a slope</td><td>30° grade, wheel friction 0.58 to 1.00</td><td>tan 30° = 0.577, the minimum static friction to stay put with brakes on</td></tr>
+              <tr><td>Brake trigger</td><td>15 to 25 mm from the grip</td><td>Room for gloved fingers, close enough to brake without letting go</td></tr>
+              <tr><td>Terrain</td><td>46 cm standing water, 20 cm snow, 5 km range</td><td>Flood depths, Toronto snowfall data, average lost-hiker distance</td></tr>
+              <tr><td>Environment</td><td>−45 to 56.7 °C, 40 to 95% humidity</td><td>Coldest inhabited region to hottest recorded temperature</td></tr>
+              <tr><td>Lighting and noise</td><td>200 to 500 lux, 82 dB max</td><td>Enough light for close work without dazzling; quiet enough for patients sensitive to sound</td></tr>
+              <tr><td>Storage</td><td>At least 42.7 L</td><td>Volume of a standard EMT trauma kit</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>3. Combine the best ideas into one concept</h3>
+        <p>A morphological chart laid out every way our concepts solved each function (restrain the patient, steer, light the way, adjust height, cross terrain, shield from weather), and we picked and merged the strongest:</p>
+        <ul>
+          <li><strong>Analogical design:</strong> the canopy took its cue from the bubble canopy on military aircraft, and the thick rubber wheels from aircraft landing gear.</li>
+          <li><strong>SCAMPER:</strong> the folding frame in earlier concepts was replaced by height-adjustable legs, which do the same job of shrinking for storage while also fitting each operator.</li>
+          <li><strong>Design by attribute:</strong> fixed handles that forced a tall and a short paramedic into bad postures became modular steering handles, plus built-in handles on the bed for carrying.</li>
+          <li><strong>Merging two concepts:</strong> one concept’s hooks for add-on modules and another’s shelving unit were both kept, giving modularity and more storage than a full trauma kit needs.</li>
+        </ul>
+      </div>
+
+      <figure class="wide-figure is-drawing">
+        <img src="../assets/img/projects/dynamic-rescuer/concept-sketch.png" alt="Side-view concept sketch labelling the guard rails, hooks to hold modules, braking system, platform, handle, adjustable-height legs and modular wheels" width="800" height="570" loading="lazy">
+        <figcaption>Integrated concept sketch, side view.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h3>4. Map the system</h3>
+        <p>A subsystem identification matrix tied each function to the parts that deliver it, and a system diagram traced every input (patient weight, human force, medical supplies, battery, weather) through the subsystems to its output. It included the bad outputs, like added weight and noise, so we designed against them instead of ignoring them.</p>
+      </div>
+
+      <figure class="wide-figure is-drawing">
+        <img src="../assets/img/projects/dynamic-rescuer/system-diagram.png" alt="System diagram: patient weight, human force, medical supplies, battery and weather environment flow through the platform, height adjusting, securing, steering, storage, lighting, roof and modular movement systems to outputs such as added weight, adjusted height, visibility, protected interior, speed, sound and distance travelled" width="800" height="639" loading="lazy">
+        <figcaption>System diagram: inputs on the left, subsystems inside the boundary, outputs on the right.</figcaption>
+      </figure>
+
+      <div class="prose">
         <h2>The design</h2>
         <ul>
-          <li><strong>Roll it or carry it.</strong> The bed is a standalone assembly that clips onto the wheeled frame on circular rods. Where wheels can’t go, paramedics lift the bed off and hand-carry it, as they are trained to.</li>
-          <li><strong>Fits every operator.</strong> Height-adjustable legs and modular steering handles let short and tall paramedics both reach the controls, and mean patients don’t have to be lifted high or lowered far.</li>
-          <li><strong>Brakes in the grip.</strong> Each steering handle has a trigger in front of the grip that applies two brake pads per wheel mount.</li>
-          <li><strong>Built-in storage.</strong> A 73.1 L compartment in the frame holds a standard Canadian EMS trauma kit (about 42.8 L) with room to spare.</li>
-          <li><strong>Materials chosen for the job.</strong> A steel frame for strength (585 MPa tensile), a polyethylene bed and legs, natural rubber handles, and frame-mounted lights on user-replaceable lithium batteries rated from −20 to 60 °C.</li>
-          <li><strong>Designed around the patient.</strong> A full enclosing canopy protected patients from rain but could make patients with cognitive disorders feel trapped, so we redesigned it as a roof only.</li>
-          <li><strong>Quick to assemble.</strong> We kept fasteners to a minimum so a stressed operator can put it together fast.</li>
+          <li><strong>Roll it or carry it.</strong> The polyethylene bed slides onto the steel frame on circular rods. Where wheels can’t go, paramedics lift the loaded bed off by its built-in handles and hand-carry it, as they are trained to.</li>
+          <li><strong>Fits every operator.</strong> Telescoping legs lock with a pin at three heights, from 600 to 1170 mm, so patients aren’t lifted high or lowered far. Modular steering handles mount on the frame or the bed.</li>
+          <li><strong>Brakes in the grip.</strong> A trigger directly in front of each grip applies two brake pads per wheel mount.</li>
+          <li><strong>Restraints that meet the standard.</strong> Instead of designing new straps, we specified Ferno 430 Series restraints, adjustable from 406 to 2743 mm and threaded through the bed’s guard rails, with the quick release Ontario’s ambulance standards require.</li>
+          <li><strong>A canopy that comes off.</strong> The 800 mm tall acrylic canopy is clear so the operator can see ahead, and detaches without tools so the carrier still fits through doors.</li>
+          <li><strong>Storage built into the frame.</strong> A 73.1 L compartment with side doors holds a standard Canadian EMS trauma kit (about 42.8 L) with room to spare, plus hooks for add-on modules.</li>
+          <li><strong>Materials chosen for the job.</strong> AISI 1045 steel frame and wheel covers (585 MPa tensile), polyethylene bed and legs, natural rubber handles and wheel treads, and high-beam LED lights on user-replaceable 9 V lithium-ion batteries rated from −20 to 60 °C.</li>
+        </ul>
+      </div>
+
+      <figure class="wide-figure is-drawing">
+        <img src="../assets/img/projects/dynamic-rescuer/exploded.png" alt="Exploded SolidWorks assembly with numbered balloons: bed, canopy, frame, handles, legs, screws, wheel covers and wheels" width="600" height="470" loading="lazy">
+        <figcaption>Exploded assembly from the SolidWorks drawing set.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <div class="table-scroll">
+          <table>
+            <caption class="muted" style="text-align:left; caption-side: bottom; padding-top: 0.6rem;">Bill of materials.</caption>
+            <thead><tr><th scope="col">Item</th><th scope="col">Part</th><th scope="col">Description</th><th scope="col">Qty</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Bed</td><td>Custom, polyethylene</td><td>1</td></tr>
+              <tr><td>2</td><td>Canopy</td><td>Custom, acrylic</td><td>1</td></tr>
+              <tr><td>3</td><td>Frame</td><td>Custom, AISI 1045 steel</td><td>1</td></tr>
+              <tr><td>4</td><td>Handle</td><td>Custom, natural rubber</td><td>2</td></tr>
+              <tr><td>5</td><td>Leg</td><td>Custom, polyethylene</td><td>4</td></tr>
+              <tr><td>6</td><td>Button head hex drive screw</td><td>Off the shelf, McMaster-Carr 92095A294</td><td>4</td></tr>
+              <tr><td>7</td><td>Wheel cover</td><td>Custom, AISI 1045 steel</td><td>4</td></tr>
+              <tr><td>8</td><td>Wheel</td><td>Custom, natural rubber</td><td>4</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Trade-offs we made</h2>
+        <ul>
+          <li><strong>Wheels over swappable attachments.</strong> We first planned legs that could take skis or tracks. Swapping parts under time pressure costs time and invites fastening mistakes that can make the unit fail, so we settled on rubber casters, the most versatile option. Soft rubber also absorbs shock, which let us drop a separate suspension.</li>
+          <li><strong>A roof, not an enclosure.</strong> A full canopy protected patients from rain but could make patients with autism or claustrophobia panic, so it became a roof only.</li>
+          <li><strong>Off-the-shelf where it already works.</strong> Inflatable comfort pillows for patients with autism were cut, because any standard inflatable pillow does the job. Restraints and screws were bought, not designed.</li>
+          <li><strong>Fewer fasteners.</strong> The design brief required modularity, so we kept the number of fasteners to a minimum so a stressed operator can assemble it quickly and correctly.</li>
         </ul>
 
+        <h2>Who it excludes</h2>
+        <p>We walked the full setup, use and put-away sequence through the Cambridge Exclusion Calculator to estimate the share of people each step would exclude. Merging the concepts brought strength and dexterity exclusion down from at least 9% in most loop 2 concepts to 5.9%, and walking and mobility from at least 13% in four of six concepts to 11.6%.</p>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">Demand</th><th scope="col">Hardest step</th><th scope="col">Excluded</th></tr></thead>
+            <tbody>
+              <tr><td>Vision</td><td>Attaching the steering handles at the right height</td><td>0.9%</td></tr>
+              <tr><td>Concentration and memory</td><td>Fitting modules and setting leg height quickly</td><td>4.0%</td></tr>
+              <tr><td>Strength and dexterity (non-dominant hand)</td><td>Loading and restraining the patient</td><td>5.2%</td></tr>
+              <tr><td>Strength and dexterity (dominant hand)</td><td>Lifting the loaded bed off and carrying it</td><td>5.9%</td></tr>
+              <tr><td>Hearing</td><td>Steering while talking to a partner in a noisy scene</td><td>6.4%</td></tr>
+              <tr><td>Walking and mobility</td><td>Steering long distances over rough ground</td><td>11.6%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
         <h2>What we had to fix along the way</h2>
-        <p>Early concepts had underspecified brakes, no suspension (which made them sway on uneven ground) and no patient restraints. Each was logged as a design issue and resolved in later loops, alongside human-factors problems like controls that looked too similar and status displays that were hard to read in poor light.</p>
+        <p>Each issue was logged in the design change record and resolved in the next loop.</p>
+        <ul>
+          <li><strong>Loop 1:</strong> four concepts had underspecified brakes, three swayed because they had no shocks or suspension, and three had no patient restraints. Human-factors reviews also flagged controls that looked too similar and status indicators that were hard to read in poor light.</li>
+          <li><strong>Loop 2:</strong> one wheel design broke the 82 dB noise limit, a full canopy excluded claustrophobic patients, and one base ignored leg length so the patient’s legs hung off the end.</li>
+        </ul>
+
+        <h2>Where it fell short</h2>
+        <p>The final review was honest about what the integrated design didn’t yet meet:</p>
+        <ul>
+          <li>It ran 33 mm too wide and 121 mm too long for the 2134 × 610 mm envelope.</li>
+          <li>The CAD model’s mass properties came out wrong because of a modelling error, so we couldn’t confirm the 50 kg empty weight from the model.</li>
+          <li>Fixed casters and pin-set legs limit how far it can go in deep snow or floodwater, short of the original terrain goals.</li>
+          <li>Setting the pins and reaching the storage under the bed both mean bending down, which adds back strain and strength demand.</li>
+        </ul>
+        <p>The next iteration would shrink the frame into the envelope, rebuild the model with correct material assignments to verify weight, and replace the pins with a lever-actuated height adjustment operated from handle height.</p>
 
         <h2>Conclusion</h2>
-        <p>The Dynamic Rescuer meets the brief’s core goal: one system that rolls where it can and is carried where it can’t, sized for the full range of paramedics and built around the patient. Its biggest decisions, like adjustable height, modular steering handles and a roof-only canopy, came from the personas and exclusion analysis rather than from geometry alone, and three design loops turned early safety gaps in braking, stability and restraint into resolved features.</p>
+        <p>The Dynamic Rescuer meets the brief’s core goal: one system that rolls where it can and is carried where it can’t, sized for the full range of paramedics and built around the patient. Its biggest decisions, like adjustable height, modular steering handles and a roof-only canopy, came from the personas and exclusion analysis rather than from geometry alone. Three design loops turned early safety gaps in braking, stability and restraint into resolved features, and the final review set out clearly what the next version needs to fix.</p>
 
         <p>The full design report and SolidWorks files aren’t posted here. <a href="mailto:dante.rieger@gmail.com">Email me</a> if you’d like to know more, or see the <a href="https://github.com/danterieger/projects/tree/main/2023/dynamic-rescuer">write-up on GitHub</a>.</p>
         <a class="back-link" href="./">Back to all projects</a>
