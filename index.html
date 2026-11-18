@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=1794791263">
+  <link rel="stylesheet" href="assets/css/site.css?v=1795045532">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316212c'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23f5c518'/%3E%3Cpath d='M8 7h6a6 6 0 0 1 0 12H8z' fill='none' stroke='%23eef2f4' stroke-width='2.5'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -40,8 +40,8 @@
         </div>
         <h1 class="name" id="intro-name"><span><span class="name-line">Dante</span></span> <span><span class="name-line">Rieger</span></span></h1>
         <ul class="intro-meta">
-          <li>Mechatronics engineer, B.Eng. (Hons.)<br><span>Toronto, Canada</span></li>
           <li>Project Manager at QBuild Software<br><span>Current role, since November 2026</span></li>
+          <li>Mechatronics engineer, B.Eng. (Hons.)<br><span>Toronto, Canada</span></li>
           <li>Mechanical design<br><span>CAD, simulation, DFM and prototyping</span></li>
           <li>Manufacturing engineering<br><span>Lean, layouts and production flow</span></li>
         </ul>
@@ -96,12 +96,67 @@
       </div>
     </section>
 
-    <div class="seam" style="--from: #16212c; --to: #0b4a2c" aria-hidden="true"></div>
+    <div class="seam" style="--from: #16212c; --to: #12306b" aria-hidden="true"></div>
+    <section class="chapter chapter-now" data-bg="#12306b" aria-labelledby="ch-now">
+      <div class="wrap chapter-grid">
+        <div class="chapter-copy">
+          <p class="chapter-tag">Project management</p>
+          <p class="chapter-meta">QBuild Software, Markham, since November 2026</p>
+          <h2 id="ch-now">One bill of materials, from design to production</h2>
+          <p>Engineering and production often work from different copies of the same product. At QBuild I manage engineering and software integration projects for CADLink, which connects CAD and PDM systems to a company’s ERP so the parts and BOMs engineering releases are the ones production builds.</p>
+          <a class="chapter-link" href="#experience">See my experience</a>
+        </div>
+        <figure class="flow-figure">
+          <svg viewBox="0 0 520 250" role="img" aria-labelledby="flow-title">
+            <title id="flow-title">CAD and PDM on one side, ERP on the other, with CADLink in the middle passing parts and BOMs both ways</title>
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#8fb4ff"/></marker>
+            </defs>
+            <g class="flow-node"><rect x="6" y="80" width="138" height="90" rx="6"/><text x="75" y="120">CAD</text><text x="75" y="146" class="flow-sub">and PDM</text></g>
+            <g class="flow-node is-core"><rect x="191" y="62" width="138" height="126" rx="6"/><text x="260" y="130">CADLink</text></g>
+            <g class="flow-node"><rect x="376" y="80" width="138" height="90" rx="6"/><text x="445" y="120">ERP</text><text x="445" y="146" class="flow-sub">production</text></g>
+            <line class="flow-line" x1="150" y1="112" x2="185" y2="112" marker-end="url(#arrow)"/>
+            <line class="flow-line" x1="185" y1="140" x2="150" y2="140" marker-end="url(#arrow)"/>
+            <line class="flow-line" x1="335" y1="112" x2="370" y2="112" marker-end="url(#arrow)"/>
+            <line class="flow-line" x1="370" y1="140" x2="335" y2="140" marker-end="url(#arrow)"/>
+            <text x="260" y="226" class="flow-caption">Items and BOMs move both ways</text>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <div class="seam" style="--from: #12306b; --to: #f5c518" data-from="#12306b" data-via="#1f6a8f,#3f9e78,#b4cc45" data-to="#f5c518" aria-hidden="true"></div>
+    <section class="chapter chapter-floor" data-bg="#f5c518" aria-labelledby="ch-floor">
+      <div class="wrap chapter-grid">
+        <div class="chapter-copy">
+          <p class="chapter-tag">Manufacturing</p>
+          <p class="chapter-meta">Lincoln Electric, engineering internship, 2025 to 2026</p>
+          <h2 id="ch-floor">Products launched, lines rebuilt</h2>
+          <p>A year on Lincoln Electric’s welding equipment production floor: taking new products from BOMs and schematics into production, and reorganizing work areas with 5S, lean and kaizen so they run safer and with fewer bottlenecks.</p>
+          <ul class="chapter-list">
+            <li>Vantage 500 and Maverick 300X product launches</li>
+            <li>Machine Division assembly line reorganization</li>
+            <li>Cored wire payoff area redesign for safety and crane access</li>
+          </ul>
+          <a class="chapter-link" href="projects/?sector=Manufacturing">See manufacturing projects</a>
+        </div>
+        <div class="chapter-figure">
+          <p class="steps-title">From drawing to production floor</p>
+          <ol class="chapter-steps">
+            <li><strong>Schematics and BOMs</strong><span>Electrical schematics and bills of materials for each new model</span></li>
+            <li><strong>Documentation</strong><span>Technical documents written to cut operator errors on the line</span></li>
+            <li><strong>Launch</strong><span>Vantage 500 and Maverick 300X released into production</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div class="seam seam-lime" data-from="#f5c518" data-via="#86c63f,#178a45" data-to="#0b4a2c" aria-hidden="true"></div>
     <section class="chapter chapter-capstone" data-bg="#0b4a2c" aria-labelledby="ch-capstone">
       <div class="wrap chapter-grid">
         <div class="chapter-copy">
           <p class="chapter-tag">Mechanical design</p>
-          <p class="chapter-meta">Capstone, Toronto Metropolitan University, 2026</p>
+          <p class="chapter-meta">Team research project, 2026</p>
           <h2 id="ch-capstone">A lattice damper for drone motors</h2>
           <p>Drone motors shake the whole aircraft. Our team designed and simulated five lattice families for a 3D-printed damper that sits between the motor and the arm, stopping vibration at its source.</p>
           <ul class="chapter-stats">
@@ -128,33 +183,7 @@
       </div>
     </section>
 
-    <div class="seam seam-lime" data-from="#0b4a2c" data-via="#178a45,#86c63f" data-to="#f5c518" aria-hidden="true"></div>
-    <section class="chapter chapter-floor" data-bg="#f5c518" aria-labelledby="ch-floor">
-      <div class="wrap chapter-grid">
-        <div class="chapter-copy">
-          <p class="chapter-tag">Manufacturing</p>
-          <p class="chapter-meta">Engineering internship, 2025 to 2026</p>
-          <h2 id="ch-floor">Products launched, lines rebuilt</h2>
-          <p>A year on a welding equipment production floor: taking new products from BOMs and schematics into production, and reorganizing work areas with 5S, lean and kaizen so they run safer and with fewer bottlenecks.</p>
-          <ul class="chapter-list">
-            <li>Vantage 500 and Maverick 300X product launches</li>
-            <li>Machine Division assembly line reorganization</li>
-            <li>Cored wire payoff area redesign for safety and crane access</li>
-          </ul>
-          <a class="chapter-link" href="projects/?sector=Manufacturing">See manufacturing projects</a>
-        </div>
-        <div class="chapter-figure">
-          <p class="steps-title">From drawing to production floor</p>
-          <ol class="chapter-steps">
-            <li><strong>Schematics and BOMs</strong><span>Electrical schematics and bills of materials for each new model</span></li>
-            <li><strong>Documentation</strong><span>Technical documents written to cut operator errors on the line</span></li>
-            <li><strong>Launch</strong><span>Vantage 500 and Maverick 300X released into production</span></li>
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <div class="seam" style="--from: #f5c518; --to: #f4f6f7" aria-hidden="true"></div>
+    <div class="seam" style="--from: #0b4a2c; --to: #f4f6f7" aria-hidden="true"></div>
     <section class="section index" data-bg="#f4f6f7" aria-labelledby="index-title">
       <div class="wrap">
         <div class="section-head index-head">
@@ -289,8 +318,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/lattice.js?v=1794791263" defer></script>
-  <script src="assets/js/motion.js?v=1794791263" defer></script>
-  <script src="assets/js/seams.js?v=1794791263" defer></script>
+  <script src="assets/js/lattice.js?v=1795045532" defer></script>
+  <script src="assets/js/motion.js?v=1795045532" defer></script>
+  <script src="assets/js/seams.js?v=1795045532" defer></script>
 </body>
 </html>

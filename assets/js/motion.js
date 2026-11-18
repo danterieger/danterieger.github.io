@@ -63,6 +63,12 @@
     });
   }, { threshold: 0.6 });
   document.querySelectorAll("[data-count]").forEach((el) => {
+    // Screen readers get the final figure; only the visible digits animate.
+    const real = document.createElement("span");
+    real.className = "sr-only";
+    real.textContent = el.textContent;
+    el.after(real);
+    el.setAttribute("aria-hidden", "true");
     el.textContent = "0" + (el.dataset.suffix || "");
     numIO.observe(el);
   });
