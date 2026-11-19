@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/site.css?v=1795051702">
+  <link rel="stylesheet" href="../assets/css/site.css?v=1795052185">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316212c'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23f5c518'/%3E%3Cpath d='M8 7h6a6 6 0 0 1 0 12H8z' fill='none' stroke='%23eef2f4' stroke-width='2.5'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -63,6 +63,7 @@
         <h2>My role</h2>
         <ul>
           <li>Proposed one of the team’s four design concepts: photoresistor sensing, push-button control, a slider design and a popsicle-stick curtain rod, the combination the final prototype was built on</li>
+          <li>Built the Tinkercad simulation of the circuit used to test the control logic</li>
           <li>Worked with the team on mechanism selection, testing and the final report</li>
         </ul>
 
@@ -94,6 +95,38 @@
         <img src="../assets/img/projects/smart-curtain/slider-crank-drawing.png" alt="Solid Edge drawing titled Curtain Function Design: the slider-crank mechanism with 6.5 and 4 inch links above the curtain panels, the base curtain at 6.5 by 6 inches, and an isometric view of the assembly" width="577" height="379" loading="lazy">
         <figcaption>Curtain function drawing: the slider-crank links (left) and the base curtain (right).</figcaption>
       </figure>
+
+      <div class="prose">
+        <h2>Simulated first in Tinkercad</h2>
+        <p>Before building anything, we tested the whole control system in a Tinkercad circuit simulation I put together: Arduino Uno, photoresistor, micro servo, push buttons, an IR receiver with its remote, and a 16×2 LCD that shows the current mode.</p>
+      </div>
+
+      <figure class="wide-figure is-drawing">
+        <img src="../assets/img/projects/smart-curtain/tinkercad-circuit.png" alt="Tinkercad circuit: an Arduino Uno wired to a breadboard with a photoresistor, two push buttons, a potentiometer and an IR receiver, plus a micro servo, a 16 by 2 LCD and an IR remote" width="1213" height="747" loading="lazy">
+        <figcaption>The Tinkercad simulation circuit, wired the way the code expects.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">Signal</th><th scope="col">Arduino pin</th></tr></thead>
+            <tbody>
+              <tr><td>Photoresistor (light level)</td><td>A0</td></tr>
+              <tr><td>Servo</td><td>D9</td></tr>
+              <tr><td>Open and close buttons</td><td>D2 and D12, internal pull-ups</td></tr>
+              <tr><td>IR receiver</td><td>D7</td></tr>
+              <tr><td>LCD (RS, E, D4 to D7)</td><td>D4, D5, D6, D8, D10, D11</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li><strong>Automatic mode with hysteresis.</strong> The curtain opens above 700 and closes below 300, and holds its state in between, so light hovering around one level can’t make it flutter.</li>
+          <li><strong>A real IR remote.</strong> Remote buttons map to open, close, toggle and a noise test.</li>
+          <li><strong>A noise test.</strong> Typing <code>NOISE</code> in the Serial Monitor adds ±50 of random noise to the light reading, to check the thresholds stay stable with a jittery sensor.</li>
+          <li><strong>Serial commands and a status screen.</strong> <code>AUTO</code>, <code>MANUAL</code> and <code>WIRELESS</code> switch modes, and the LCD shows the mode and whether noise is on.</li>
+        </ul>
+        <p>The hardware prototype then added a half-open position, smooth servo motion and a dedicated mode button. Both versions of the code are <a href="https://github.com/danterieger/projects/tree/main/2025/smart-curtain/code">on GitHub</a>.</p>
+      </div>
 
       <div class="prose">
         <h2>The design</h2>
@@ -132,7 +165,7 @@
         <h2>Results and what we’d change</h2>
         <p>In testing, the curtain moved smoothly between all three positions, followed the light thresholds in automatic mode, and responded to the buttons and remote commands in the other two modes.</p>
         <ul>
-          <li><strong>Remote control was simulated.</strong> The remote mode used a push button and serial commands; a real IR receiver and remote would be the next step.</li>
+          <li><strong>Bring the IR remote to the hardware.</strong> On the prototype, a push button and serial commands stood in for the remote. The IR receiver code already works in the Tinkercad version and can be carried over.</li>
           <li><strong>Cardboard is a prototype material.</strong> 3D-printed links and frame would last longer and hold tolerances better.</li>
           <li><strong>Thresholds need real-world tuning.</strong> The 300, 500 and 700 levels were set on the bench, and should be adjusted against actual window light.</li>
           <li><strong>Show the mode.</strong> LED indicators for the current mode would help users.</li>
@@ -141,7 +174,7 @@
         <h2>Conclusion</h2>
         <p>The smart curtain brings sensing, actuation and control together in one small, cheap system: a photoresistor and Arduino decide, a servo and slider-crank act, and three modes keep a person in charge when they want to be. Choosing the mechanism by prototyping three options, rather than on paper, is what made it repeatable.</p>
 
-        <p>The full report and code listing aren’t posted here. <a href="mailto:dante.rieger@gmail.com">Email me</a> if you’d like to know more, or see the <a href="https://github.com/danterieger/projects/tree/main/2025/smart-curtain">write-up on GitHub</a>.</p>
+        <p>The code for both versions is on GitHub with the <a href="https://github.com/danterieger/projects/tree/main/2025/smart-curtain">full write-up</a>. <a href="mailto:dante.rieger@gmail.com">Email me</a> if you’d like to know more.</p>
         <a class="back-link" href="./">Back to all projects</a>
       </div>
     </article>
