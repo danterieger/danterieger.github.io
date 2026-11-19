@@ -10,13 +10,15 @@ Plain HTML and CSS, no build step. GitHub Pages serves the `main` branch.
 index.html                     Home: intro and portrait, what I do, featured work,
                                all projects, experience, education and certifications, contact
 projects/index.html            All projects, filterable by sector
+404.html                       Page-not-found page (GitHub Pages serves it automatically)
+robots.txt, sitemap.xml        Let search engines find every page; add new case studies to sitemap.xml
 projects/<project>.html        One case study per major project
 assets/css/site.css            All styles and design tokens
 assets/js/lattice.js           Interactive lattice in the capstone section
 assets/js/seams.js             Smooth, dithered colour transitions between sections
 assets/js/motion.js            Name entrance, scroll reveals, count-ups and the ticker pause button
 assets/js/projects.js          Builds the sector filters on the projects page
-assets/img/me/                 Portrait and headshot
+assets/img/me/                 Portrait, headshot and social-card.jpg (the LinkedIn link preview)
 assets/img/education/          Graduation photos
 assets/img/projects/<project>/ Images for each project (keep each under ~1 MB)
 ```
