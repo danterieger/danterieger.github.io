@@ -1,6 +1,6 @@
 /* Dante Rieger — personal site
-   Palette taken from the shop floor: slate ink, safety-yellow floor marking, walkway orange.
-   TPU green is reserved for the capstone lattice. */
+   Current palette (see the v12 block near the end): a blueprint family of blues on a neutral
+   paper base, safety yellow as the single accent, and sectors marked by shape, not colour. */
 :root {
   --paper: #f4f6f7;
   --panel: #e8efea;
@@ -692,3 +692,97 @@ p, li, figcaption { text-wrap: pretty; }
 .copy-email:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 .copy-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) { .copy-email { transition: none; } }
+
+/* ===== v12: blueprint palette =====
+   One blue family for the bands, safety yellow as the single accent, neutral paper base.
+   Sectors are told apart by shape, not colour: square = mechanical design,
+   triangle = manufacturing, circle = project management, diamond = electrical & controls.
+   The --c-* variables now hold clip-path shapes, so existing markup keeps working. */
+:root {
+  --ink: #10203a;
+  --ink-2: #1c3150;
+  --on-ink: #eef3fa;
+  --on-ink-2: #b4c3d9;
+  --orange: #1e5aa8;          /* repurposed: text-safe link blue for underlines, hover and focus */
+  --green: #1e5aa8;
+  --tpu: #1e5aa8;
+  --tpu-light: #f5c518;
+  --blue-900: #10203a;
+  --blue-800: #12306b;
+  --blue-600: #1e5aa8;
+  --blue-850: #0b2a52;
+  --blue-100: #dbe7f6;
+  --mark: #1e5aa8;            /* sector shape colour on light backgrounds */
+  --panel: #eaf0f8;
+  --walkway: #dbe7f6;
+  --c-mech: inset(0 round 1px);
+  --c-mfg: polygon(50% 4%, 100% 96%, 0 96%);
+  --c-pm: circle(50%);
+  --c-elec: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+.band-ink, .chapter-now, .chapter-floor, .chapter-capstone, .site-footer { --mark: var(--yellow); }
+
+/* Shapes instead of coloured squares */
+.sector-tag { color: inherit; }
+.sector-tag::before, .filters .chip, .index-list .ix-title::before { background: var(--mark); clip-path: var(--sector); border-radius: 0; }
+.sector-tag::before, .filters .chip { width: 0.75rem; height: 0.75rem; }
+.band-ink .sector-tag { color: var(--on-ink-2); }
+.chapter-tag::before { background: currentColor; border-radius: 0; width: 0.75rem; height: 0.75rem; }
+.chapter-now .chapter-tag::before { clip-path: var(--c-pm); }
+.chapter-floor .chapter-tag::before { clip-path: var(--c-mfg); }
+.chapter-capstone .chapter-tag::before { clip-path: var(--c-mech); }
+.band-ink .capabilities li { border-top-color: var(--yellow); }
+.band-ink .capabilities li:hover h3 { color: var(--yellow); }
+.ticker-track li, .ticker-track li:nth-child(4n+1) { color: var(--on-ink-2); }
+.index-list li::before { background: var(--blue-100); }
+.index-list a:hover { background: transparent; }
+.filters button:hover:not([aria-pressed="true"]) { background: var(--blue-100); }
+
+/* Bands */
+.band-ink, .site-footer.band-ink { background: var(--blue-900); }
+.chapter-now { background: var(--blue-800); }
+.chapter-now .chapter-tag { color: var(--yellow); }
+.chapter-now .chapter-link { text-decoration-color: var(--yellow); }
+.chapter-now .chapter-link:hover { color: var(--yellow); }
+.chapter-now :focus-visible { outline-color: var(--yellow); }
+.flow-node rect { stroke: #9cc0f5; }
+.flow-node.is-core rect { fill: var(--yellow); }
+.flow-node.is-core text { fill: var(--blue-900); }
+.flow-line { stroke: #9cc0f5; }
+
+.chapter-floor { background: var(--blue-600); color: #fff; }
+.chapter-floor h2 { color: #fff; }
+.chapter-floor .chapter-tag { color: var(--yellow); }
+.chapter-floor .chapter-meta { color: #d6e4f8; }
+.chapter-floor .chapter-link { color: #fff; text-decoration-color: var(--yellow); }
+.chapter-floor .chapter-link:hover { color: var(--yellow); }
+.chapter-floor :focus-visible { outline-color: var(--yellow); }
+.chapter-floor .chapter-steps li, .chapter-floor .chapter-steps li:last-child { border-color: rgba(255, 255, 255, 0.85); }
+.chapter-floor .chapter-steps li::before { color: var(--yellow); }
+
+.chapter-capstone { background: var(--blue-850); color: #e6eefa; }
+.chapter-capstone .chapter-meta, .chapter-capstone .chapter-stats span, .chapter-capstone .lattice figcaption { color: #b9cdf0; }
+.chapter-capstone .lattice-controls, .chapter-capstone .lattice-controls output { color: #e6eefa; }
+
+.band-orange { background: var(--blue-100); color: var(--ink); }
+.band-orange .lede { color: #33496b; }
+.band-orange .contact-email { text-decoration-color: var(--blue-600); }
+.band-orange .contact-email:hover { color: var(--blue-600); text-decoration-color: var(--blue-600); }
+.band-orange a:hover { color: var(--blue-600); }
+
+/* Blueprint grid: faint white lines on the blue bands (major every 96px, minor every 24px).
+   Drawn on a pseudo-element behind the content and faded at the top and bottom,
+   so it melts into the colour seams instead of stopping on a hard edge. */
+.section.band-ink, .chapter-now, .chapter-floor, .chapter-capstone { position: relative; isolation: isolate; }
+.section.band-ink::before, .chapter-now::before, .chapter-floor::before, .chapter-capstone::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.075) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  background-position: center top;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+}

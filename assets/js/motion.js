@@ -122,3 +122,9 @@
     }, 2000);
   });
 })();
+
+// Number the project index from the newest down, whatever the number of projects.
+(function () {
+  const list = document.querySelector(".index-list");
+  if (list) list.style.counterReset = "ix " + (list.children.length + 1);
+})();
