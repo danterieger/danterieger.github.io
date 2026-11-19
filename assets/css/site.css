@@ -786,3 +786,22 @@ p, li, figcaption { text-wrap: pretty; }
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
   mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
 }
+
+/* Blueprint grid v2: runs continuously through the blue bands, the colour seams and the footer.
+   Each piece is offset by its distance from the top of the page (set in motion.js), so the lines
+   line up across element edges. White lines this faint disappear on their own over light colours. */
+.section.band-ink::before, .chapter-now::before, .chapter-floor::before, .chapter-capstone::before,
+.seam::before, .site-footer::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  background-position: 0 var(--grid-y, 0px);
+  -webkit-mask-image: none; mask-image: none;
+}
+.section.band-ink::before, .chapter-now::before, .chapter-floor::before, .chapter-capstone::before, .site-footer::before { z-index: -1; }
+.site-footer { position: relative; isolation: isolate; }
+.seam::before { z-index: 0; }

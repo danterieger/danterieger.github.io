@@ -128,3 +128,16 @@
   const list = document.querySelector(".index-list");
   if (list) list.style.counterReset = "ix " + (list.children.length + 1);
 })();
+
+// Keep the blueprint grid continuous: offset each gridded element by its position on the page.
+(function () {
+  const els = [...document.querySelectorAll(".section.band-ink, .chapter-now, .chapter-floor, .chapter-capstone, .seam, .site-footer")];
+  if (!els.length) return;
+  const align = () => els.forEach((el) => {
+    const top = el.getBoundingClientRect().top + window.scrollY;
+    el.style.setProperty("--grid-y", (-(top % 96)) + "px");
+  });
+  align();
+  window.addEventListener("load", align);
+  window.addEventListener("resize", align);
+})();
