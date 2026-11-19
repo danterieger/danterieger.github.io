@@ -86,3 +86,39 @@
     btn.textContent = paused ? "Play" : "Pause";
   });
 })();
+
+// Copy-email button: one click puts the address on the clipboard, for visitors whose
+// browser has no email app set up for mailto links (for example, Gmail in a browser).
+(function () {
+  const btn = document.querySelector("[data-copy]");
+  if (!btn) return;
+  const status = btn.parentElement.querySelector(".copy-status");
+  let timer;
+  btn.addEventListener("click", async () => {
+    const text = btn.dataset.copy;
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(text);
+      ok = true;
+    } catch (e) {
+      const field = document.createElement("textarea");
+      field.value = text;
+      field.setAttribute("readonly", "");
+      field.style.position = "absolute";
+      field.style.left = "-9999px";
+      document.body.appendChild(field);
+      field.select();
+      try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+      field.remove();
+    }
+    btn.textContent = ok ? "Copied" : "Copy";
+    if (status) status.textContent = ok ? "Email address copied" : "Couldn’t copy. Select the address instead.";
+    btn.classList.toggle("is-done", ok);
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      btn.textContent = "Copy";
+      btn.classList.remove("is-done");
+      if (status) status.textContent = "";
+    }, 2000);
+  });
+})();
