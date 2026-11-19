@@ -665,3 +665,8 @@ a, button, summary, input { touch-action: manipulation; }
 
 /* Avoid one-word last lines in body copy */
 p, li, figcaption { text-wrap: pretty; }
+
+/* v10: small report images shown at their natural size, centred in the text column */
+.case .case-figure.is-drawing { width: auto; margin-left: 0; transform: none; }
+.case .is-drawing.small-source img { width: auto; max-width: 100%; display: block; margin-inline: auto; }
+.case .is-drawing.small-source figcaption { text-align: center; }

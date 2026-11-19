@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f7">
+  <title>Smart curtain: light-controlled window automation | Dante Rieger</title>
+  <meta name="description" content="Mechatronics design project: an Arduino-controlled curtain that opens, half-opens or closes with daylight, driven by a servo and a slider-crank linkage, with manual and remote override modes.">
+  <meta property="og:image" content="https://danterieger.github.io/assets/img/projects/smart-curtain/cad-mechanism.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css?v=1795046580">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316212c'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23f5c518'/%3E%3Cpath d='M8 7h6a6 6 0 0 1 0 12H8z' fill='none' stroke='%23eef2f4' stroke-width='2.5'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../">Dante Rieger</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="./" aria-current="page">Projects</a></li>
+          <li><a href="../#experience">Experience</a></li>
+          <li><a href="../#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="wrap case">
+      <header class="case-hero">
+        <p class="sector-tag" style="--sector: var(--c-elec)">Electrical &amp; controls</p>
+        <h1>Smart curtain: light-controlled window automation</h1>
+        <p class="lede">A window curtain that runs itself. A light sensor tells an Arduino how bright it is outside, and a servo-driven slider-crank opens the curtain fully, halfway or closes it, with push-button and remote modes that override the automation.</p>
+        <dl class="case-meta">
+          <div><dt>Context</dt><dd>MEC 830 Mechatronics Systems Design, Group 02</dd></div>
+          <div><dt>When</dt><dd>Fall 2025</dd></div>
+          <div><dt>Team</dt><dd>Nitin Mahay, Joshua Jeyasanker, Dante Rieger, Elti Tabaku</dd></div>
+          <div><dt>Tools</dt><dd>Arduino Uno (C++), TinkerCAD, KiCad, Solid Edge</dd></div>
+        </dl>
+        <figure class="case-figure is-drawing small-source">
+          <img src="../assets/img/projects/smart-curtain/cad-mechanism.png" alt="Solid Edge assembly of the curtain frame with the front panel removed: a micro servo at the top right drives a two-link slider-crank that pulls the curtain along its rod" width="473" height="291">
+          <figcaption>The Solid Edge assembly with the front panel off, showing the servo and slider-crank behind the curtain.</figcaption>
+        </figure>
+      </header>
+
+      <div class="prose">
+        <h2>The brief</h2>
+        <p>Curtains are usually moved by hand, which means glare in the afternoon, a dark room in the morning, and no privacy or heat control at night unless someone remembers. The brief was to turn our Phase 1 control logic into a working hardware prototype: a low-cost curtain that opens in daylight and closes at night on its own, while still letting the user take over with a button or a remote. It had to be built from an Arduino Uno kit and inexpensive materials, and work consistently.</p>
+
+        <h2>My role</h2>
+        <ul>
+          <li>Proposed one of the team’s four design concepts: photoresistor sensing, push-button control, a slider design and a popsicle-stick curtain rod, the combination the final prototype was built on</li>
+          <li>Worked with the team on mechanism selection, testing and the final report</li>
+        </ul>
+
+        <h2>How we designed it</h2>
+        <h3>1. Compare four concepts</h3>
+        <p>Each of us proposed a full concept and we compared them in a morphological chart. All four used an Arduino Uno, a servo and an IR remote. Three sensed light with a photoresistor (one used an ultrasonic distance sensor), three used push buttons for manual control (one used a potentiometer), and three moved the curtain with a slider rather than rolling it up.</p>
+
+        <h3>2. Prototype the mechanism three ways</h3>
+        <p>We built small versions of three mechanisms: a shaft that rolls the curtain up, a string pulley, and a slider-crank. The roll-up shaft and the pulley didn’t open and close the curtain consistently enough, so we chose the slider-crank for its simplicity, ease of building and, above all, repeatability.</p>
+
+        <h3>3. Size the linkage</h3>
+        <p>The servo arm drives a 4 in crank link, which is pinned to a 6.5 in slider link clipped to the curtain rings on the rod. We settled the lengths through calculation and trial and error, so the servo’s 0 to 180° swing maps onto the full curtain width:</p>
+      </div>
+
+      <div class="prose">
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">Servo angle</th><th scope="col">Slider reach</th><th scope="col">Curtain</th></tr></thead>
+            <tbody>
+              <tr><td>0°</td><td>6.5 in (fully extended)</td><td>Closed</td></tr>
+              <tr><td>90°</td><td>Partway</td><td>Half open</td></tr>
+              <tr><td>180°</td><td>0 in (links overlap)</td><td>Fully open</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <figure class="wide-figure is-drawing small-source">
+        <img src="../assets/img/projects/smart-curtain/slider-crank-drawing.png" alt="Solid Edge drawing titled Curtain Function Design: the slider-crank mechanism with 6.5 and 4 inch links above the curtain panels, the base curtain at 6.5 by 6 inches, and an isometric view of the assembly" width="577" height="379" loading="lazy">
+        <figcaption>Curtain function drawing: the slider-crank links (left) and the base curtain (right).</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h2>The design</h2>
+        <h3>Electronics</h3>
+        <ul>
+          <li><strong>Light sensing.</strong> A photoresistor in a voltage divider feeds analog pin A0, read as 0 to 1023. It’s the only analog signal, which keeps noise low.</li>
+          <li><strong>Four push buttons</strong> for open, close, half-open and mode select on D2, D3, D6 and D4, using the Arduino’s internal pull-ups with debouncing in software, so no extra resistors.</li>
+          <li><strong>Remote input</strong> on D5, with an IR receiver module wired to 5 V, ground and one digital pin.</li>
+          <li><strong>Servo</strong> on PWM pin D9. Everything runs from the Arduino’s 5 V USB supply, with short wiring and a schematic laid out so it could move to a PCB.</li>
+        </ul>
+      </div>
+
+      <figure class="wide-figure is-drawing">
+        <img src="../assets/img/projects/smart-curtain/schematic.png" alt="KiCad schematic: Arduino Uno R3 connected to a photoresistor divider on A0, four push buttons, a servo on D9 and an IR receiver module" width="776" height="588" loading="lazy">
+        <figcaption>KiCad schematic, also built and tested in TinkerCAD.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h3>Control logic</h3>
+        <p>The Arduino runs a three-mode state machine. The mode button cycles through them, and each mode decides the servo’s target angle:</p>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">Mode</th><th scope="col">How it decides</th></tr></thead>
+            <tbody>
+              <tr><td>Automatic</td><td>Above 700: fully open. 500 to 700: half open. Below 300: closed. Between 300 and 500 the curtain holds its last position.</td></tr>
+              <tr><td>Manual</td><td>The open, half and close buttons set the position directly, ignoring the light level.</td></tr>
+              <tr><td>Remote</td><td>Each press of the remote button cycles closed, half open, fully open. Serial commands (O, H, C, T, S) open, half-open, close, cycle or print a status report.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>The servo never jumps straight to its target. It moves 2° at a time with a 15 ms pause, so a full open or close takes a couple of seconds, which is smoother to watch and easier on the motor and the cardboard linkage. In automatic mode the controller also reports the light level, curtain state and servo angle every second for testing.</p>
+
+        <h2>Build</h2>
+        <p>The prototype frame, crank and slider links are cardboard, the rod is popsicle sticks and the curtain rings are zip ties. A front panel covers the mechanism so only the curtain is visible, the way it would look on a real window.</p>
+
+        <h2>Results and what we’d change</h2>
+        <p>In testing, the curtain moved smoothly between all three positions, followed the light thresholds in automatic mode, and responded to the buttons and remote commands in the other two modes.</p>
+        <ul>
+          <li><strong>Remote control was simulated.</strong> The remote mode used a push button and serial commands; a real IR receiver and remote would be the next step.</li>
+          <li><strong>Cardboard is a prototype material.</strong> 3D-printed links and frame would last longer and hold tolerances better.</li>
+          <li><strong>Thresholds need real-world tuning.</strong> The 300, 500 and 700 levels were set on the bench, and should be adjusted against actual window light.</li>
+          <li><strong>Show the mode.</strong> LED indicators for the current mode would help users.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>The smart curtain brings sensing, actuation and control together in one small, cheap system: a photoresistor and Arduino decide, a servo and slider-crank act, and three modes keep a person in charge when they want to be. Choosing the mechanism by prototyping three options, rather than on paper, is what made it repeatable.</p>
+
+        <p>The full report and code listing aren’t posted here. <a href="mailto:dante.rieger@gmail.com">Email me</a> if you’d like to know more, or see the <a href="https://github.com/danterieger/projects/tree/main/2025/smart-curtain">write-up on GitHub</a>.</p>
+        <a class="back-link" href="./">Back to all projects</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Dante Rieger. Toronto, Canada.</p>
+    </div>
+  </footer>
+</body>
+</html>
