@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f7">
+  <title>Wind turbine tower vibration absorber | Dante Rieger</title>
+  <meta name="description" content="A vibration absorber for an 85 m wind turbine tower: a lumped-mass model in Python, a revised spring and EPDM design in SolidWorks, and a later re-check that found and fixed a simulation bug.">
+  <link rel="canonical" href="https://danterieger.github.io/projects/wind-turbine-absorber.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Dante Rieger">
+  <meta property="og:url" content="https://danterieger.github.io/projects/wind-turbine-absorber.html">
+  <meta property="og:title" content="Wind turbine tower vibration absorber | Dante Rieger">
+  <meta property="og:description" content="A vibration absorber for an 85 m wind turbine tower: a lumped-mass model in Python, a revised spring and EPDM design in SolidWorks, and a later re-check that found and fixed a simulation bug.">
+  <meta property="og:image" content="https://danterieger.github.io/assets/img/projects/wind-turbine-absorber/absorber-top.png">
+  <meta property="og:image:width" content="515">
+  <meta property="og:image:height" content="567">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css?v=1795051702">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316212c'/%3E%3Crect x='6' y='22' width='20' height='4' fill='%23f5c518'/%3E%3Cpath d='M8 7h6a6 6 0 0 1 0 12H8z' fill='none' stroke='%23eef2f4' stroke-width='2.5'/%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../">Dante Rieger</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="./" aria-current="page">Projects</a></li>
+          <li><a href="../#experience">Experience</a></li>
+          <li><a href="../#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="wrap case">
+      <header class="case-hero">
+        <p class="sector-tag" style="--sector: var(--c-mech)">Mechanical design</p>
+        <h1>Wind turbine tower vibration absorber</h1>
+        <p class="lede">Bigger blades make wind turbines more efficient, but they also shake the tower. We modelled an 85 m tower as a vibrating system, found where it would resonate, and designed a spring-mounted absorber to sit in the nacelle, then I went back and re-checked the simulation.</p>
+        <dl class="case-meta">
+          <div><dt>Context</dt><dd>Team design project</dd></div>
+          <div><dt>When</dt><dd>Winter 2024</dd></div>
+          <div><dt>Team</dt><dd>Jonah Roukema, Dante Rieger, Nathan Abdul, Kavin Bharathi, Noah Gordon</dd></div>
+          <div><dt>Tools</dt><dd>Python (NumPy, Matplotlib), SolidWorks</dd></div>
+        </dl>
+        <figure class="case-figure is-drawing small-source">
+          <img src="../assets/img/projects/wind-turbine-absorber/absorber-top.png" alt="SolidWorks top view of the absorber: a heavy spherical mass held in the centre of a ring frame by four compression springs" width="515" height="567">
+          <figcaption>Final design, top view: the absorber mass held by four compression springs inside a ring frame.</figcaption>
+        </figure>
+      </header>
+
+      <div class="prose">
+        <h2>The brief</h2>
+        <p>Turbines keep getting bigger to meet demand for renewable energy, and larger rotors bring larger dynamic loads. Out-of-plane vibration at the top of the tower causes fatigue, maintenance cost and downtime, and in the worst case structural failure near homes and buildings. We were asked to design a vibration-damping system for a tower 85 m tall and 4 m in diameter, with a generator of about 10,000 kg at the top.</p>
+        <ul>
+          <li>Control vibration from a 500 kN wind excitation between 4 and 6 Hz</li>
+          <li>Survive a 110 km/h gust lasting 0.5 s</li>
+          <li>Fit inside the 5 × 5 × 5 m space at the top of the tower</li>
+          <li>Stand up to wind, rain and sun, stay quiet, and be safe and practical to install, adjust and maintain at reasonable cost</li>
+        </ul>
+
+        <h2>My role</h2>
+        <ul>
+          <li>The mathematical model of the tower and the Python simulations</li>
+          <li>The SolidWorks model of the absorber design</li>
+          <li>Re-checking the simulation for this write-up, finding a bug in it and correcting the analysis</li>
+        </ul>
+
+        <h2>How we designed it</h2>
+        <h3>1. Model the tower</h3>
+        <p>We treated the steel tower (A36, hollow, 4 m outer and 3.9 m inner diameter) as springs and lumped masses: two tower masses of 207,000 kg each and a 129,144 kg mass for the generator and its casing at the top. Splitting the tower into a quarter, a half and a quarter of its length gave three springs (78.3, 9.79 and 78.3 MN/m). Wind became a 500 kN harmonic force on each mass, and the 0.5 s gust became a sudden change in the masses’ starting velocities.</p>
+      </div>
+
+      <figure class="wide-figure is-drawing">
+        <img src="../assets/img/projects/wind-turbine-absorber/model-sketch.png" alt="Hand sketch: the turbine tower divided into three lumped masses m1, m2 and m3 with springs k1, k2 and k3, redrawn as a three-mass spring chain fixed to the ground with a force F(t) on each mass" width="1176" height="522" loading="lazy">
+        <figcaption>From tower to model: three lumped masses joined by springs, each driven by the wind force F(t).</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h3>2. Find where it resonates</h3>
+        <p>Modal analysis in Python gave three natural frequencies: 0.80, 3.29 and 5.05 Hz. The 5.05 Hz mode sits right inside the 4 to 6 Hz wind band, so without help the tower would resonate. That set the job for the absorber: a mass on a spring at the top of the tower that moves against the vibration.</p>
+
+        <h3>3. Choose the hardware</h3>
+        <p>A morphological chart broke the absorber into three subsystems, the damping mechanism, the adjustment system and the absorber material, and we checked every option against the requirements. The first design used a hard rubber damper, tension springs and polyurethane. Reviewing it changed three things:</p>
+        <ul>
+          <li><strong>Compression springs, not tension.</strong> The tower’s motion loads the absorber mainly in compression.</li>
+          <li><strong>No friction damper.</strong> It would generate heat next to the generator and other components.</li>
+          <li><strong>EPDM rubber, not polyurethane.</strong> Polyurethane is tough but expensive and better suited to short-life parts. EPDM is cheaper, lasts longer, and resists weather, ageing and abrasion while still damping vibration and noise.</li>
+        </ul>
+        <p>The final design holds a heavy spherical mass in the centre of a ring frame on four compression springs, with EPDM dampers, sized to fit the top of the tower.</p>
+
+        <h2>Re-checking the simulation</h2>
+        <p>Our report concluded that the absorber cut tower vibration from about 0.2 m to 0.03 m. When I re-ran our Python code for this write-up, I found that result came from a bug. NumPy returns natural frequencies in no particular order, and the code paired each frequency with the wrong mode shape. With the pairing fixed:</p>
+        <ul>
+          <li><strong>The absorber we chose wouldn’t have helped.</strong> A 50,000 kg mass on a 100 kN/m spring has its own natural frequency near 0.23 Hz, far below the 5 Hz problem, so the tower moves almost exactly as it would without it.</li>
+          <li><strong>Tuned properly, it works.</strong> Setting the absorber’s frequency to the 5.05 Hz mode needs a spring of about 50 MN/m. In the same model that cancels the 5 Hz peak at the top of the tower, and the worst case anywhere in the 4 to 6 Hz band falls from about 9 cm to about 1.5 cm.</li>
+          <li><strong>It isn’t free.</strong> A tuned absorber splits one resonance into two, and the new peak near 4.2 Hz still lands in the band. A real design would add damping to the absorber to flatten both peaks, which is where the EPDM earns its place.</li>
+        </ul>
+      </div>
+
+      <figure class="wide-figure is-drawing">
+        <img src="../assets/img/projects/wind-turbine-absorber/recheck-response.png" alt="Log-scale plot of nacelle amplitude against excitation frequency from 3.5 to 6.5 Hz. The tower alone and the original absorber overlap, with a peak near 5.05 Hz. The tuned absorber removes that peak, leaving a smaller peak near 4.2 Hz" width="1350" height="570" loading="lazy">
+        <figcaption>Nacelle response across the wind band. The original absorber (dashed) sits on top of the tower-alone curve; the tuned absorber removes the 5 Hz peak. A 1% loss factor is added so peaks stay finite on the plot.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <h2>What we’d change</h2>
+        <ul>
+          <li>Tune the absorber to the resonance first, then size the spring hardware, instead of picking the spring from a sweep at a single frequency.</li>
+          <li>Add damping to the model, so the absorber’s two side peaks can be designed down rather than ignored.</li>
+          <li>Check the simulation against a hand calculation before trusting a big improvement; a simple steady-state solve would have caught the mode-pairing bug.</li>
+          <li>Back the material choice with stiffness and damping data for EPDM, not general properties.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>The project carried a real structure from physics to hardware: a lumped-mass model of the tower, a resonance found inside the wind band, and a spring-and-EPDM absorber revised for how the tower actually loads it. Going back to the numbers showed that our original absorber was tuned to the wrong frequency, and what the right one needs. The corrected analysis and code are on GitHub.</p>
+
+        <p><a href="mailto:dante.rieger@gmail.com">Email me</a> if you’d like to know more, or see the <a href="https://github.com/danterieger/projects/tree/main/2024/wind-turbine-absorber">write-up and re-check code on GitHub</a>.</p>
+        <a class="back-link" href="./">Back to all projects</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Dante Rieger. Toronto, Canada.</p>
+    </div>
+  </footer>
+</body>
+</html>
