@@ -805,3 +805,6 @@ p, li, figcaption { text-wrap: pretty; }
 .section.band-ink::before, .chapter-now::before, .chapter-floor::before, .chapter-capstone::before, .site-footer::before { z-index: -1; }
 .site-footer { position: relative; isolation: isolate; }
 .seam::before { z-index: 0; }
+
+/* The ticker sits on the blueprint grid, so its own border lines would double up with the grid lines */
+.band-ink .ticker { border-block: 0; }

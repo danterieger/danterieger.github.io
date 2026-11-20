@@ -140,4 +140,10 @@
   align();
   window.addEventListener("load", align);
   window.addEventListener("resize", align);
+  // Re-align whenever the page height changes (web fonts arriving, images loading, sections opening).
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(align);
+  if ("ResizeObserver" in window) {
+    let raf;
+    new ResizeObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(align); }).observe(document.body);
+  }
 })();
