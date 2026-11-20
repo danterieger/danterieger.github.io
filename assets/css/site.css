@@ -808,3 +808,7 @@ p, li, figcaption { text-wrap: pretty; }
 
 /* The ticker sits on the blueprint grid, so its own border lines would double up with the grid lines */
 .band-ink .ticker { border-block: 0; }
+
+/* Employer logo in place of a photo, for projects without their own images */
+.project-logo { display: grid; place-items: center; padding: 1.5rem; }
+.project-logo img { width: 100%; height: auto; max-height: 100%; object-fit: contain; }
